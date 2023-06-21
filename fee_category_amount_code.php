@@ -55,6 +55,20 @@ if (isset($_POST['btn-save'])) {
             }
         }
     }
-
 }
+
+if(isset($_POST['btn-update'])){
+    $fee_category_id = $_POST['fee_category_id'];
+    $class_id = $_POST['class_id'];
+    $amount = $_POST['amount'];
+    $url = 'edit_fee_category_amount.php?fee_category_id='.$fee_category_id;
+    foreach ($class_id as $key => $value) {
+        if (empty($value)) {
+            $_SESSION['ErrorMessage'] = "Please select a class!!";
+            header("location: $url");
+        }
+    }
+    
+}
+
 ?>

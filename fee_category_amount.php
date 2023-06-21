@@ -83,8 +83,9 @@ include('configuration/connection.php');
 	    							</thead>
 	    							<tbody>
 	    								<?php
-	    								$query = "SELECT * FROM fee_categories";
+	    								$query = "SELECT fee_category_amounts.fee_category_id,fee_categories.name FROM fee_category_amounts INNER JOIN fee_categories ON fee_category_amounts.fee_category_id = fee_categories.id GROUP BY fee_category_amounts.fee_category_id";
 	    								$query_run = mysqli_query($conn,$query);
+
 	    								if (mysqli_num_rows($query_run) > 0) {
 	    									foreach ($query_run as $key => $value) {
 	    										?>
@@ -92,8 +93,8 @@ include('configuration/connection.php');
 	    												<td><?php echo $key+1 ?></td>
 	    												<td><?php echo $value['name'] ?></td>
 	    												<td>
-	    													<a  href="edit_exam_type.php?exam_type_id=<?php echo $value['id']?>" type="button" class="btn btn-info btn-sm"><i class="fas fa-edit"></i>Edit</a>
-															<button value="<?php echo $value['id']?>" type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-danger btn-sm delete-btn"><i class="fas fa-trash"></i>&nbsp;Delete</button>
+	    													<a  href="edit_fee_category_amount.php?fee_category_id=<?php echo $value['fee_category_id']?>" type="button" class="btn btn-info btn-sm"><i class="fas fa-edit"></i>Edit</a>
+															<button value="<?php echo $value['fee_category_id']?>" type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-danger btn-sm delete-btn"><i class="fas fa-trash"></i>&nbsp;Delete</button>
 	    												</td>
 	    											</tr>
 	    										<?php
