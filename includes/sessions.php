@@ -22,4 +22,16 @@ function SuccessMessage(){
     }
 }
 
+function notification(){
+    if(isset($_SESSION['notification'])){
+        $output = "<div class=\"alert alert-danger alert-dismissible fade show\" role=\"alert\">";
+        $output .= htmlentities($_SESSION['notification']);
+        $output .= "<button class=\"close\" type=\"button\" data-dismiss=\"alert\" aria-label=\"Close\">
+                    <span aria-hidden=\"true\">&times;</span></button>";
+        $output .= "</div>";
+        unset($_SESSION['notification']);
+        return $output;
+    }
+}
+
 ?>

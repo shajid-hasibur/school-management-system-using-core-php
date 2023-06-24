@@ -25,6 +25,9 @@ include('configuration/connection.php');
 	    </div>
 
         <div class="container-fluid">
+            <?php
+                echo notification();
+            ?>
             <div class="row">
                 <div class="col-12">
                     <div class="card">
@@ -85,19 +88,18 @@ include('configuration/connection.php');
                                                             }
                                                             ?>
                                                     </select>
-                                                    <?php
-                                                        echo ErrorMessage();
-                                                    ?>
+                                            
                                                     </div>
                                                     </div>
                                                     <div class="from-group row">
                                                     <label class="col-form-label" for="" style="width: 100px;">Fee Amount :</label>
                                                     <div class="col-4">
                                                         <input type="text" class="form-control" name="amount[]" value="<?php echo $amount['amount']; ?>"><br>
+                
                                                     </div>
                                                      <div>
                                                      <button type="button" class="btn btn-success add-btn"><i class="fa fa-plus"></i></button>
-                <button type="button" class="btn btn-danger remove-btn" style="margin-left: 5px;"><i class="fa fa-minus"></i></button>
+                                                     <button type="button" class="btn btn-danger remove-btn" style="margin-left: 5px;"><i class="fa fa-minus"></i></button>
                                                      </div>       
                                                     </div>
                                                 </div>
@@ -130,28 +132,12 @@ include('configuration/connection.php');
                                 }
                                 ?>
                         </select>
-                        <?php
-                            if (isset($_SESSION['class-validate'])) {
-			    				?>
-			    				<span style="font-size:14px;color:red;"><?php echo $_SESSION['class-validate']; ?></span>
-				    			<?php
-				    			unset($_SESSION['class-validate']);
-			    			}
-                        ?>  
                     </div>      
             </div>
             <div class="form-group row">
                 <label class="col-form-label" for="" style="width: 100px;">Fee Amount :</label>
                 <div class="col-md-4">
                     <input type="text" class="form-control" name="amount[]">
-                    <?php
-                        if (isset($_SESSION['amount-validate'])) {
-                            ?>
-                            <span style="font-size:14px;color:red;"><?php echo $_SESSION['amount-validate']; ?></span>
-                            <?php
-                            unset($_SESSION['amount-validate']);
-                        }
-                    ?> 
                 </div>
                                    
                 <button type="button" class="btn btn-success add-btn"><i class="fa fa-plus"></i></button>

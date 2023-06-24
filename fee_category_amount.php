@@ -2,6 +2,7 @@
 include('includes/header.php');
 include('includes/topbar.php');
 include('includes/sidebar.php');
+include('includes/sessions.php');
 include('authentication.php');
 include('configuration/connection.php');
 ?>
@@ -47,7 +48,10 @@ include('configuration/connection.php');
 	      </div><!-- /.container-fluid -->
 	    </div>				
 
-	    <div class="container-fluid">    	
+	    <div class="container-fluid">
+			<?php
+				echo SuccessMessage();
+			?>    	
 	    	<div class="row">
 	    		<div class="col-md-4">
 					<?php
