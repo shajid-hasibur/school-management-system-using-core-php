@@ -31,9 +31,9 @@ include('configuration/connection.php');
             <div class="row">
                 <div class="col-12">
                     <div class="card">
-                        <div class="card-header">
+                        <div class="card-header bg-dark">
 	    					<h5 class="card-title">Fee Category Amount</h5>
-	    					<a href="#" class="btn btn-success btn-sm float-right"><i class="fa fa-plus-circle"></i>&nbsp;Add Fee Amount</a>
+	    					<a href="fee_category_amount.php" class="btn btn-success btn-sm float-right"><i class="fa fa-arrow-left"></i>&nbsp;Back</a>
 	    				</div>
                         <div class="card-body">
                             <?php

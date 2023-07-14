@@ -50,20 +50,20 @@ include('configuration/connection.php');
 	    <div class="container-fluid">    	
 	    	<div class="row">
 	    		<div class="col-md-4">
-		    	<?php
-					if (isset($_SESSION['status'])) {
-					    ?>
-					    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-							<strong><?php echo $_SESSION['status']; ?></strong>
-							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
-					    <?php
-					   	unset($_SESSION['status']);
-					   }
-		    	?>				
-	    	</div>
+					<?php
+						if (isset($_SESSION['status'])) {
+							?>
+							<div class="alert alert-warning alert-dismissible fade show" role="alert">
+								<strong><?php echo $_SESSION['status']; ?></strong>
+								<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<?php
+							unset($_SESSION['status']);
+						}
+					?>				
+	    		</div>
 	    		<div class="col-lg-12">
 	    			<div class="card">
 	    				<div class="card-header">

@@ -81,7 +81,7 @@ if(isset($_POST['btn-update'])){
             $_SESSION['notification'] = "All amount field is required!!";
             header("location: $url");
         }elseif(!preg_match('/^[0-9]+$/',$value)){
-            $_SESSION['notification'] = "The fee amount field only accepts number";
+            $_SESSION['notification'] = "The fee amount field only accepts number!!";
             header("location: $url");
         }else{
             $pass2 = 1;

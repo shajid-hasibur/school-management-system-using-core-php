@@ -70,7 +70,7 @@ include('configuration/connection.php');
 	    	    </div>
 	    		<div class="col-lg-12">
 	    			<div class="card">
-	    				<div class="card-header">
+	    				<div class="card-header bg-dark">
 	    					<h5 class="card-title">Fee Category Amount</h5>
 	    					<a href="create_fee_amount.php" class="btn btn-success btn-sm float-right"><i class="fa fa-plus-circle"></i>&nbsp;Add Fee Amount</a>
 	    				</div>

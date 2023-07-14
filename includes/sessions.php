@@ -34,4 +34,14 @@ function notification(){
     }
 }
 
+function validation(){
+    if(isset($_SESSION['validation'])){
+        $output = "<span style=\"font-size:14px;color:red;\">";
+        $output .= htmlentities($_SESSION['validation']);
+        $output .= "</span>";
+        unset($_SESSION['validation']);
+        return $output;
+    }
+}
+
 ?>
