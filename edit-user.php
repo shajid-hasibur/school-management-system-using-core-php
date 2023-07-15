@@ -1,4 +1,5 @@
 <?php
+$title = "Edit User Data";
 include('includes/header.php');
 include('includes/topbar.php');
 include('includes/sidebar.php');
@@ -28,11 +29,9 @@ include('configuration/connection.php');
 	    	<div class="row">
 	    		<div class="col-lg-12">
 	    			<div class="card">
-	    				<div class="card-header">
+	    				<div class="card-header bg-dark">
 	    					<h3 class="card-title">Update Registered User</h3>
-							<a class="btn btn-warning btn-sm float-right" type="button" 
-							href="registration.php">
-								<i class="fa fa-back"></i>&nbsp;Back</a>
+							<a href="registration.php" class="btn btn-success btn-sm float-right"><i class="fa fa-arrow-left"></i>&nbsp;Back</a>
 	    				</div>
 	    				<div class="card-body">
 	    					

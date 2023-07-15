@@ -1,4 +1,5 @@
 <?php
+$title = "Fee Category Amount";
 include('includes/header.php');
 include('includes/topbar.php');
 include('includes/sidebar.php');
@@ -78,7 +79,7 @@ include('configuration/connection.php');
 
 	    					<div class="table-responsive">
 	    						<table id="example1" class="table table-bordered">
-	    							<thead style="background-color:seagreen; color:white">
+	    							<thead class="bg-dark">
 	    								<tr>
 	    									<th style="width:10%">#</th>
 	    									<th style="width:45%">Fee Type</th>

@@ -2,7 +2,7 @@
 include('authentication.php');
 ?>
 <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-dark navbar-light" style="background-color:#bf5130;">
+  <nav class="main-header navbar navbar-expand navbar-dark navbar-light bg-dark">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">

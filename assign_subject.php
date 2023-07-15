@@ -1,5 +1,5 @@
 <?php
-$title = "School Subjects";
+$title = "Subject List Classwise";
 include('includes/header.php');
 include('includes/topbar.php');
 include('includes/sidebar.php');
@@ -35,12 +35,12 @@ include('configuration/connection.php');
 	<div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0">Subjects</h1>
+                <h1 class="m-0">Assign Subjects</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
-                <li class="breadcrumb-item active">Subjects</li>
+                <li class="breadcrumb-item active">Assign Subjects</li>
                 </ol>
             </div><!-- /.col -->   
         </div><!-- /.row -->    
@@ -56,15 +56,15 @@ include('configuration/connection.php');
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header bg-dark">
-                    <h5 class="card-title">Subject List</h5>
-	    		    <a href="create_subject.php" class="btn btn-success btn-sm float-right"><i class="fa fa-plus-circle"></i>&nbsp;Add New Subject</a>
+                    <h5 class="card-title">Assign Subject List</h5>
+	    		    <a href="create_assign_subject.php" class="btn btn-success btn-sm float-right"><i class="fa fa-plus-circle"></i>&nbsp;Assign New Subjects</a>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table id="example1" class="table table-bordered table-hover">
                             <thead class="bg-dark">
                                 <th class="text-center">#</th>
-                                <th class="text-center">Subjects</th>
+                                <th class="text-center">Class</th>
                                 <th class="text-center">Action</th>
                             </thead>
                             <tbody>

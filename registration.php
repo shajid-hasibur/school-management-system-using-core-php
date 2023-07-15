@@ -1,4 +1,5 @@
 <?php
+$title = "Registered Users";
 include('includes/header.php');
 include('includes/topbar.php');
 include('includes/sidebar.php');
@@ -17,17 +18,17 @@ include('authentication.php');
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header bg-dark">
         <h5 class="modal-title" id="exampleModalLabel">Delete User</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body bg-dark">
         <strong>Are you sure want to delete this record?</strong>
         <input type="hidden" name="delete_id" class="delete-user-id">
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer bg-dark">
         <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
         <button type="submit" name="deleteUserBtn" class="btn btn-primary">Yes, Delete!</button>
       </div>
@@ -72,7 +73,7 @@ include('authentication.php');
 				}
 				?>
 				<div class="card">
-					<div class="card-header">
+					<div class="card-header bg-dark">
 						<h3 class="card-title">Registered User</h3>
 							<a class="btn btn-success btn-sm float-right" type="button" 
 							href="user_registration.php">
@@ -80,7 +81,7 @@ include('authentication.php');
 					</div>
 					<div class="card-body">
 						<table id="example1" class="table table-bordered">
-							<thead style="background-color: black; color: white;">
+							<thead class="bg-dark">
 								<tr>
 									<th>#</th>
 									<th>Name</th>

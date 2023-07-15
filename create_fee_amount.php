@@ -1,4 +1,5 @@
 <?php
+$title = "Add Fee Category Amount";
 include('includes/header.php');
 include('includes/topbar.php');
 include('includes/sidebar.php');

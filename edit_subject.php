@@ -1,4 +1,5 @@
 <?php
+$title = "Edit Subjects";
 include('includes/header.php');
 include('includes/topbar.php');
 include('includes/sidebar.php');

@@ -1,4 +1,5 @@
 <?php
+$title = "Edit Student Group";
 include('includes/header.php');
 include('includes/topbar.php');
 include('includes/sidebar.php');
@@ -29,8 +30,9 @@ include('includes/sessions.php');
 	    	<div class="row">
 	    		<div class="col-lg-12">
 	    			<div class="card">
-	    				<div class="card-header">
+	    				<div class="card-header bg-dark">
 	    					<h5 class="card-title">Update Group</h5>
+							<a href="student_group.php" class="btn btn-success btn-sm float-right"><i class="fa fa-arrow-left"></i>&nbsp;Back</a>
 	    				</div>
 	    				<div class="card-body">
 	    					<?php

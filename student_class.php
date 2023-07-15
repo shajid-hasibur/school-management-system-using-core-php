@@ -1,4 +1,5 @@
 <?php
+$title = "Student Class";
 include('includes/header.php');
 include('includes/topbar.php');
 include('includes/sidebar.php');
@@ -65,7 +66,7 @@ include('configuration/connection.php');
 	    	</div>
 	    		<div class="col-lg-12">
 	    			<div class="card">
-	    				<div class="card-header">
+	    				<div class="card-header bg-dark">
 	    					<h5 class="card-title">Student Class</h5>
 	    					<a href="create_student_class.php" class="btn btn-success btn-sm float-right"><i class="fa fa-plus-circle"></i>&nbsp;Add New Class</a>
 	    				</div>
@@ -73,7 +74,7 @@ include('configuration/connection.php');
 
 	    					<div class="table-responsive">
 	    						<table id="example1" class="table table-bordered">
-	    							<thead style="background-color:seagreen; color:white">
+	    							<thead class="bg-dark">
 	    								<tr>
 	    									<th style="width:10%">#</th>
 	    									<th style="width:45%">Class</th>

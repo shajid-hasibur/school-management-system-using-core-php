@@ -1,4 +1,5 @@
 <?php
+$title = "Edit Exam Types";
 include('includes/header.php');
 include('includes/topbar.php');
 include('includes/sidebar.php');
@@ -28,8 +29,9 @@ include('configuration/connection.php');
 	    	<div class="row">
 	    		<div class="col-lg-12">
 	    			<div class="card">
-	    				<div class="card-header">
+	    				<div class="card-header bg-dark">
 	    					<h5 class="card-title">Update Exam Type</h5>
+							<a href="exam_type.php" class="btn btn-success btn-sm float-right"><i class="fa fa-arrow-left"></i>&nbsp;Back</a>
 	    				</div>
 	    				<div class="card-body">
 	    					<?php

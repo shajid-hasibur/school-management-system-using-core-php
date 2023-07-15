@@ -1,4 +1,5 @@
 <?php
+$title = "User Registration";
 include('includes/header.php');
 include('includes/topbar.php');
 include('includes/sidebar.php');
@@ -25,8 +26,9 @@ include('authentication.php');
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="card">
-					<div class="card-header">
+					<div class="card-header bg-dark">
 						<h1 class="card-title">Registration Form</h1>
+						<a href="registration.php" class="btn btn-success btn-sm float-right"><i class="fa fa-arrow-left"></i>&nbsp;Back</a>
 					</div>
 					<div class="card-body">
 						<div class="col-md-4" style="margin-left:400px;">
