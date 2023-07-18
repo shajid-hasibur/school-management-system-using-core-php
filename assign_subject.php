@@ -69,7 +69,9 @@ include('configuration/connection.php');
                             </thead>
                             <tbody>
                             <?php
-                                $query = "SELECT * FROM subjects";
+                                $query = "SELECT assign_subjects.class_id, classes.name FROM assign_subjects
+                                INNER JOIN classes ON assign_subjects.class_id = classes.id
+                                GROUP BY assign_subjects.class_id";
                                 $query_run = mysqli_query($conn,$query);
                                 
                                 if(mysqli_num_rows($query_run) > 0){
@@ -79,8 +81,8 @@ include('configuration/connection.php');
                                             <td class="text-center"><?php echo $key+1?></td>
                                             <td class="text-center"><?php echo $value['name']?></td>
                                             <td class="text-center">
-                                                <a href="edit_subject.php?subject_id=<?php echo $value['id'] ?>" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i>Edit</a>
-                                                <button type="button" value="<?php echo $value['id']?>" data-toggle="modal" data-target="#exampleModal" class="btn btn-danger btn-sm delete-btn"><i class="fas fa-trash"></i>&nbsp;Delete</button>
+                                                <a href="edit_subject.php?subject_id=<?php echo $value['class_id'] ?>" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i>Edit</a>
+                                                <a href="assign_subject_details.php?class_id=<?php echo $value['class_id'] ?>" class="btn btn-warning btn-sm"><i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;Details</a>
                                             </td>
                                         </tr>
                                         <?php

@@ -3,6 +3,7 @@ $title = "Add Subjects To Class";
 include('includes/header.php');
 include('includes/topbar.php');
 include('includes/sidebar.php');
+include('includes/sessions.php');
 include('authentication.php');
 include('configuration/connection.php');
 ?>
@@ -28,6 +29,9 @@ include('configuration/connection.php');
 <div class="container-fluid">
 	<div class="row">
 	    <div class="col-lg-12">
+            <?php
+                echo notification();
+            ?>
 	    	<div class="card">
 	    		<div class="card-header bg-dark">
 	    			<h5 class="card-title">Add Subjects</h5>
@@ -43,11 +47,11 @@ include('configuration/connection.php');
                     $query2_run = mysqli_query($conn,$query2);
                     $subjects = mysqli_fetch_all($query2_run, MYSQLI_ASSOC);
                 ?>         
-	    		<form action="#" method="POST">
+	    		<form action="assign_subject_code.php" method="POST">
                     <div class="main-item">
                         <div class="form-group col-lg-4">
                             <label>Class</label>
-                            <select name="class_id[]" class="form-control">
+                            <select name="class_id" class="form-control" required>
                             <option value="">Select Class</option>
                             <?php
                                 foreach ($classes as $key => $class) {
@@ -61,7 +65,7 @@ include('configuration/connection.php');
                         <div class="form-row col-lg-12">
                             <div class="form-group col-lg-4">
                                 <label>Subject</label>
-                                <select name="subject_id[]" class="form-control">
+                                <select name="subject_id[]" class="form-control" required>
                                 <option value="">Select Subject</option>
                                 <?php
                                     foreach ($subjects as $key => $subject) {
@@ -74,11 +78,11 @@ include('configuration/connection.php');
                             </div>
                             <div class="form-group col-lg-3">
                                 <label>Full Mark</label>
-                                <input type="text" class="form-control" name="full_mark[]">
+                                <input type="text" class="form-control" name="full_mark[]" required>
                             </div>
                             <div class="form-group col-lg-3">
                                 <label>Pass Mark</label>
-                                <input type="text" class="form-control" name="pass_mark[]">
+                                <input type="text" class="form-control" name="pass_mark[]" required>
                             </div>
                             <div class="form-group col-lg-2" style="margin-top: 32px;">
                                 <button type="button" class="btn btn-primary add-btn"><i class="fa fa-plus"></i></button>
@@ -86,7 +90,7 @@ include('configuration/connection.php');
                         </div>
                     </div>
                     <div class="col-lg-12">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary" name="btn-save">Submit</button>
                     </div>	
 	    		</form>
 	    		</div>
@@ -100,7 +104,7 @@ include('configuration/connection.php');
     <div class="form-row col-lg-12">
         <div class="form-group col-lg-4">
             <label>Subject</label>
-            <select name="subject_id[]" class="form-control">
+            <select name="subject_id[]" class="form-control" required>
             <option value="">Select Subject</option>
             <?php
             foreach ($subjects as $key => $subject) {
@@ -113,11 +117,11 @@ include('configuration/connection.php');
         </div>
         <div class="form-group col-lg-3">
             <label>Full Mark</label>
-            <input type="text" class="form-control" name="full_mark[]">
+            <input type="text" class="form-control" name="full_mark[]" required>
         </div>
         <div class="form-group col-lg-3">
             <label>Pass Mark</label>
-            <input type="text" class="form-control" name="pass_mark[]">
+            <input type="text" class="form-control" name="pass_mark[]" required>
         </div>
         <div class="form-group col-lg-2" style="margin-top: 32px;">
             <button type="button" class="btn btn-primary add-btn"><i class="fa fa-plus"></i></button>
