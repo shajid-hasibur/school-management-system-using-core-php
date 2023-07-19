@@ -36,6 +36,7 @@ include('configuration/connection.php');
                 <div class="card-header bg-dark">
                     <h5 class="card-title">Assign Subject List</h5>
 	    		    <a href="create_assign_subject.php" class="btn btn-success btn-sm float-right"><i class="fa fa-plus-circle"></i>&nbsp;Assign New Subjects</a>
+                    <a href="assign_subject.php" class="btn btn-primary btn-sm float-right mr-2"><i class="fa fa-arrow-left"></i>&nbsp;Back</a>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">

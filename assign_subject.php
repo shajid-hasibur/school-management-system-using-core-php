@@ -81,7 +81,7 @@ include('configuration/connection.php');
                                             <td class="text-center"><?php echo $key+1?></td>
                                             <td class="text-center"><?php echo $value['name']?></td>
                                             <td class="text-center">
-                                                <a href="edit_subject.php?subject_id=<?php echo $value['class_id'] ?>" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i>Edit</a>
+                                                <a href="edit_assign_subject.php?class_id=<?php echo $value['class_id'] ?>" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i>Edit</a>
                                                 <a href="assign_subject_details.php?class_id=<?php echo $value['class_id'] ?>" class="btn btn-warning btn-sm"><i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;Details</a>
                                             </td>
                                         </tr>
