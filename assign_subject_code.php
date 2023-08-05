@@ -79,6 +79,7 @@ if(isset($_POST['btn-save'])){
 }
 
 if(isset($_POST['btn-update'])){
+    $id = $_POST['id'];
     $page_id = $_POST['page_id'];
     $class_id = $_POST['class_id'];
     $subject_id = $_POST['subject_id'];
@@ -88,6 +89,22 @@ if(isset($_POST['btn-update'])){
     $validation_pass2 = 0;
     $validation_pass3 = 0;
     $validation_pass4 = 0;
+
+    $ids = explode(', ',$id);
+    
+    //making a multidimentional array for subject data
+    $subject_data = [];
+
+    for ($i=0; $i < count($subject_id); $i++) { 
+        $sub_array = [
+            'id' => $ids[$i],
+            'subject_id' => $subject_id[$i],
+            'full_mark' => $full_mark[$i],
+            'pass_mark' => $pass_mark[$i]
+        ];
+        $subject_data[] = $sub_array;
+    }
+    //edit page url
     $url = 'edit_assign_subject.php?class_id='.$page_id;
 
     $range = array('min_range' => 1, 'max_range' => 100);
@@ -123,6 +140,30 @@ if(isset($_POST['btn-update'])){
             $validation_pass3 = 1;
         }
     }
-    
+
+    if ($validation_pass1 && $validation_pass2 && $validation_pass3 == 1) {
+
+        foreach ($subject_data as $key => $data) {
+            $primaryKey = $data['id'];
+            $subjectId = $data['subject_id'];
+            $fullMark = $data['full_mark'];
+            $passMark = $data['pass_mark'];
+
+            $query = "UPDATE assign_subjects SET subject_id = $subjectId, full_mark = $fullMark, pass_mark = $passMark WHERE class_id = $class_id AND id = $primaryKey";
+            $query_run = mysqli_query($conn,$query);
+            $_SESSION['SuccessMessage'] = "Subject list updated successfully";
+            header("location: assign_subject.php");
+
+        }    
+    }   
+}
+
+if(isset($_POST['deleteAssignSubject'])){
+    $id = $_POST['delete_id'];
+    $query = "DELETE FROM assign_subjects WHERE id = '$id'";
+    $query_run = mysqli_query($conn,$query);
+    $_SESSION['SuccessMessage'] = "One subject removed from your selected class";
+    header("location: assign_subject.php");
+
 }
 ?>

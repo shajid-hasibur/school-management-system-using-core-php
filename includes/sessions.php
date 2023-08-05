@@ -12,7 +12,7 @@ function ErrorMessage(){
 
 function SuccessMessage(){
     if(isset($_SESSION['SuccessMessage'])){
-        $output = "<div class=\"alert alert-warning alert-dismissible fade show\" role=\"alert\">";
+        $output = "<div class=\"alert alert-success alert-dismissible fade show\" role=\"alert\">";
         $output .= htmlentities($_SESSION['SuccessMessage']);
         $output .= "<button class=\"close\" type=\"button\" data-dismiss=\"alert\" aria-label=\"Close\">
                     <span aria-hidden=\"true\">&times;</span></button>";

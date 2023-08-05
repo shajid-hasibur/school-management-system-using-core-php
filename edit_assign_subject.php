@@ -52,11 +52,18 @@ include('configuration/connection.php');
                         $assign_subject_query = "SELECT * FROM assign_subjects WHERE class_id='$class_id' ORDER BY subject_id ASC";
                         $assign_subject_query_run = mysqli_query($conn,$assign_subject_query);
                         $assign_subjects = mysqli_fetch_all($assign_subject_query_run, MYSQLI_ASSOC);
-                        var_dump($assign_subjects['0']['class_id']);
+                        
+                        //getting the primary key array from $assign_subjects
+                        foreach ($assign_subjects as $key => $value) {
+                            $id[] = $value['id'];
+                        }
+                        $ids = implode(', ',$id);
+                        
                     }
                 ?>         
 	    		<form action="assign_subject_code.php" method="POST">
                     <input type="hidden" name="page_id" value="<?php echo $class_id; ?>">
+                    <input type="hidden" name="id" value="<?php echo $ids; ?>">
                     <div class="main-item">
                         <div class="form-group col-lg-4">
                             <label>Class</label>
@@ -97,10 +104,10 @@ include('configuration/connection.php');
                                     <label>Pass Mark</label>
                                     <input type="text" class="form-control" name="pass_mark[]" value="<?php echo $value['pass_mark']; ?>" required>
                                 </div>
-                                <div class="form-group col-lg-2" style="margin-top: 32px;">
+                                <!-- <div class="form-group col-lg-2" style="margin-top: 32px;">
                                     <button type="button" class="btn btn-primary add-btn"><i class="fa fa-plus"></i></button>
                                     <button type="button" class="btn btn-danger remove-btn"><i class="fa fa-minus"></i></button>
-                                </div>
+                                </div> -->
                             </div>
                             <?php
                             }       
@@ -140,14 +147,14 @@ include('configuration/connection.php');
             <label>Pass Mark</label>
             <input type="text" class="form-control" name="pass_mark[]" required>
         </div>
-        <div class="form-group col-lg-2" style="margin-top: 32px;">
+        <!-- <div class="form-group col-lg-2" style="margin-top: 32px;">
             <button type="button" class="btn btn-primary add-btn"><i class="fa fa-plus"></i></button>
             <button type="button" class="btn btn-danger remove-btn"><i class="fa fa-minus"></i></button>
-        </div>
+        </div> -->
     </div>
     </div>
 </div>	    
-<script>
+<!-- <script>
 
 $(document).ready(function(){
     $(document).on('click','.add-btn',function(){
@@ -160,7 +167,7 @@ $(document).ready(function(){
     });
 });
 
-</script>
+</script> -->
 <?php
 include('includes/footer.php');
 include('includes/script.php');
