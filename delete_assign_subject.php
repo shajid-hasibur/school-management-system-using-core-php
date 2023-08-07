@@ -13,19 +13,19 @@ include('configuration/connection.php');
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header bg-red">
         <h5 class="modal-title" id="exampleModalLabel">Delete Assigned Subject</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <strong>Are you sure want to delete this subject?</strong>
+        <strong>Are you sure want to remove this subject from this class?</strong>
         <input type="hidden" name="delete_id" class="delete-assign-subject">
       </div>
       <div class="modal-footer">
         <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
-        <button type="submit" name="deleteAssignSubject" class="btn btn-primary">Yes, Delete!</button>
+        <button type="submit" name="deleteAssignSubject" class="btn btn-danger">Yes, Delete!</button>
       </div>
     </div>
   </div>
@@ -45,7 +45,7 @@ include('configuration/connection.php');
 	<div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0">Subject Details of <?php echo $class; ?></h1>
+                <h4 class="m-0">Subject List of <?php echo $class; ?></h4>
             </div><!-- /.col -->
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -95,7 +95,7 @@ include('configuration/connection.php');
                                             <td class="text-center"><?php echo $value['full_mark']; ?></td>
                                             <td class="text-center"><?php echo $value['pass_mark']; ?></td>
                                             <td class="text-center">
-                                            <button value="<?php echo $value['id']?>" type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-danger btn-sm delete-btn"><i class="fas fa-trash"></i>&nbsp;Delete</button>
+                                            <button value="<?php echo $value['id']?>" type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-sm delete-btn bg-dark"><i class="fas fa-trash"></i></button>
                                             </td>
                                         </tr>
                                         <?php

@@ -42,4 +42,3 @@ include('authentication.php');
       </li>
     </ul>
   </nav>
-  <!-- /.navbar -->

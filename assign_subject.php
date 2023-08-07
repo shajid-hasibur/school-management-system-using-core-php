@@ -81,9 +81,9 @@ include('configuration/connection.php');
                                             <td class="text-center"><?php echo $key+1?></td>
                                             <td class="text-center"><?php echo $value['name']?></td>
                                             <td class="text-center">
-                                                <a href="edit_assign_subject.php?class_id=<?php echo $value['class_id'] ?>" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i>Edit</a>
-                                                <a href="assign_subject_details.php?class_id=<?php echo $value['class_id'] ?>" class="btn btn-warning btn-sm"><i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;Details</a>
-                                                <a href="delete_assign_subject.php?class_id=<?php echo $value['class_id'] ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp;Delete</a>
+                                                <a href="edit_assign_subject.php?class_id=<?php echo $value['class_id'] ?>" class="btn btn-sm bg-dark"><i class="fas fa-edit"></i></a>
+                                                <a href="assign_subject_details.php?class_id=<?php echo $value['class_id'] ?>" class="btn btn-sm bg-dark"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+                                                <a href="delete_assign_subject.php?class_id=<?php echo $value['class_id'] ?>" class="btn btn-sm bg-dark"><i class="fa fa-trash" aria-hidden="true"></i></a>
                                             </td>
                                         </tr>
                                         <?php

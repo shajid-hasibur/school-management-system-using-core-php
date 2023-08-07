@@ -153,7 +153,6 @@ if(isset($_POST['btn-update'])){
             $query_run = mysqli_query($conn,$query);
             $_SESSION['SuccessMessage'] = "Subject list updated successfully";
             header("location: assign_subject.php");
-
         }    
     }   
 }
@@ -164,6 +163,5 @@ if(isset($_POST['deleteAssignSubject'])){
     $query_run = mysqli_query($conn,$query);
     $_SESSION['SuccessMessage'] = "One subject removed from your selected class";
     header("location: assign_subject.php");
-
 }
 ?>
