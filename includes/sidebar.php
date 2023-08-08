@@ -23,12 +23,15 @@
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
            
-              <li class="nav-item">
-                  <a href="registration.php" class="nav-link">
-                    <i style="color:white" class="fas fa-users"></i>
-                    <p style="color:white;">Registered Users</p>
-                  </a>
-              </li>
+          <li class="nav-item">
+            <a href="registration.php" class="nav-link">
+                <i style="color:white;" class="nav-icon fas fa-users"></i>
+                <p style="color:white;">
+                Users
+                 <!-- <i class="fas fa-angle-left right"></i> -->
+                </p>
+            </a>
+          </li>
             
 
           <li class="nav-item">

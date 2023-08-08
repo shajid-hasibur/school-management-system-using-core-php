@@ -58,27 +58,75 @@ include('configuration/connection.php');
                     <div class="form-row">
                         <div class="form-group col-lg-4">
                             <label>Student's Name</label>
-                            <input type="text" name="name" class="form-control form-control-sm" placeholder="Enter student's name">
+                            <input type="text" name="name" class="form-control form-control-sm" placeholder="Enter student's name" value="<?php echo isset($_POST['name']) ? htmlspecialchars($_POST['name']) : ''; ?>">
+                            <?php
+                               if (isset($_SESSION['error-text']['name'])) {
+                                ?>
+                                <span style="font-size:14px;color:red;"><?php echo $_SESSION['error-text']['name']; ?></span>
+                                <?php
+                                unset($_SESSION['error-text']['name']);
+                            }
+                            ?>
                         </div>
                         <div class="form-group col-lg-4">
                             <label>Father's Name</label>
                             <input type="text" name="fname" class="form-control form-control-sm" placeholder="Enter father's name">
+                            <?php
+                               if (isset($_SESSION['error-text']['fname'])) {
+                                ?>
+                                <span style="font-size:14px;color:red;"><?php echo $_SESSION['error-text']['fname']; ?></span>
+                                <?php
+                                unset($_SESSION['error-text']['fname']);
+                            }
+                            ?>
                         </div>
                         <div class="form-group col-lg-4">
                             <label>Mother's Name</label>
                             <input type="text" name="mname" class="form-control form-control-sm" placeholder="Enter mother's name">
+                            <?php
+                               if (isset($_SESSION['error-text']['mname'])) {
+                                ?>
+                                <span style="font-size:14px;color:red;"><?php echo $_SESSION['error-text']['mname']; ?></span>
+                                <?php
+                                unset($_SESSION['error-text']['mname']);
+                            }
+                            ?>
                         </div>
                         <div class="form-group col-lg-4">
                             <label>Contact No</label>
                             <input type="text" name="contact" class="form-control form-control-sm" placeholder="Enter contact number">
+                            <?php
+                               if (isset($_SESSION['error-text']['contact'])) {
+                                ?>
+                                <span style="font-size:14px;color:red;"><?php echo $_SESSION['error-text']['contact']; ?></span>
+                                <?php
+                                unset($_SESSION['error-text']['contact']);
+                            }
+                            ?>
                         </div>
                         <div class="form-group col-lg-4">
                             <label>Present Address</label>
                             <input type="text" name="address1" class="form-control form-control-sm" placeholder="Enter present address">
+                            <?php
+                               if (isset($_SESSION['error-text']['address1'])) {
+                                ?>
+                                <span style="font-size:14px;color:red;"><?php echo $_SESSION['error-text']['address1']; ?></span>
+                                <?php
+                                unset($_SESSION['error-text']['address1']);
+                            }
+                            ?>
                         </div>
                         <div class="form-group col-lg-4">
                             <label>Permanent Address</label>
                             <input type="text" name="address2" class="form-control form-control-sm" placeholder="Enter permanent address">
+                            <?php
+                               if (isset($_SESSION['error-text']['address2'])) {
+                                ?>
+                                <span style="font-size:14px;color:red;"><?php echo $_SESSION['error-text']['address2']; ?></span>
+                                <?php
+                                unset($_SESSION['error-text']['address2']);
+                            }
+                            ?>
                         </div>
                         <div class="form-group col-lg-4">
                             <label>Gender</label>
@@ -87,6 +135,14 @@ include('configuration/connection.php');
                                 <option value="Male">Male</option>
                                 <option value="Female">Female</option>
                             </select>
+                            <?php
+                               if (isset($_SESSION['error-text']['gender'])) {
+                                ?>
+                                <span style="font-size:14px;color:red;"><?php echo $_SESSION['error-text']['gender']; ?></span>
+                                <?php
+                                unset($_SESSION['error-text']['gender']);
+                            }
+                            ?>
                         </div>
                         <div class="form-group col-lg-4">
                             <label>Religion</label>
@@ -98,14 +154,38 @@ include('configuration/connection.php');
                                 <option value="Christian">Christian</option>
                                 <option value="Other">Other</option>
                             </select>
+                            <?php
+                               if (isset($_SESSION['error-text']['religion'])) {
+                                ?>
+                                <span style="font-size:14px;color:red;"><?php echo $_SESSION['error-text']['religion']; ?></span>
+                                <?php
+                                unset($_SESSION['error-text']['religion']);
+                            }
+                            ?>
                         </div>
                         <div class="from-group col-lg-4">
                             <label>Date of Birth</label>
-                            <input type="text" id="datepicker" name="dob" class="form-control form-control-sm">
+                            <input type="text" id="datepicker" name="dob" class="form-control form-control-sm" autocomplete="off">
+                            <?php
+                               if (isset($_SESSION['error-text']['dob'])) {
+                                ?>
+                                <span style="font-size:14px;color:red;"><?php echo $_SESSION['error-text']['dob']; ?></span>
+                                <?php
+                                unset($_SESSION['error-text']['dob']);
+                            }
+                            ?>
                         </div>
                         <div class="from-group col-lg-4">
                             <label>Discount</label>
                             <input type="text" name="discount" class="form-control form-control-sm" placeholder="Enter discount">
+                            <?php
+                               if (isset($_SESSION['error-text']['discount'])) {
+                                ?>
+                                <span style="font-size:14px;color:red;"><?php echo $_SESSION['error-text']['discount']; ?></span>
+                                <?php
+                                unset($_SESSION['error-text']['discount']);
+                            }
+                            ?>
                         </div>
                         <div class="from-group col-lg-4">
                             <label>Year</label>
@@ -119,6 +199,14 @@ include('configuration/connection.php');
                                     }
                                 ?>
                             </select>
+                            <?php
+                               if (isset($_SESSION['error-text']['year_id'])) {
+                                ?>
+                                <span style="font-size:14px;color:red;"><?php echo $_SESSION['error-text']['year_id']; ?></span>
+                                <?php
+                                unset($_SESSION['error-text']['year_id']);
+                            }
+                            ?>
                         </div>
                         <div class="from-group col-lg-4">
                             <label>Class</label>
@@ -132,6 +220,14 @@ include('configuration/connection.php');
                                     }
                                 ?>
                             </select>
+                            <?php
+                               if (isset($_SESSION['error-text']['class_id'])) {
+                                ?>
+                                <span style="font-size:14px;color:red;"><?php echo $_SESSION['error-text']['class_id']; ?></span>
+                                <?php
+                                unset($_SESSION['error-text']['class_id']);
+                            }
+                            ?>
                         </div>
                         <div class="from-group col-lg-4">
                             <label>Group</label>
@@ -145,6 +241,14 @@ include('configuration/connection.php');
                                     }
                                 ?>
                             </select>
+                            <?php
+                               if (isset($_SESSION['error-text']['group_id'])) {
+                                ?>
+                                <span style="font-size:14px;color:red;"><?php echo $_SESSION['error-text']['group_id']; ?></span>
+                                <?php
+                                unset($_SESSION['error-text']['group_id']);
+                            }
+                            ?>
                         </div>
                         <div class="from-group col-lg-4">
                             <label>Section</label>
@@ -158,14 +262,46 @@ include('configuration/connection.php');
                                     }
                                 ?>
                             </select>
+                            <?php
+                               if (isset($_SESSION['error-text']['section_id'])) {
+                                ?>
+                                <span style="font-size:14px;color:red;"><?php echo $_SESSION['error-text']['section_id']; ?></span>
+                                <?php
+                                unset($_SESSION['error-text']['section_id']);
+                            }
+                            ?>
                         </div>
                         <div class="form-group col-lg-4">
                             <label>Email</label>
                             <input type="text" name="email" class="form-control form-control-sm">
+                            <?php
+                               if (isset($_SESSION['error-text']['email'])) {
+                                ?>
+                                <span style="font-size:14px;color:red;"><?php echo $_SESSION['error-text']['email']; ?></span>
+                                <?php
+                                unset($_SESSION['error-text']['email']);
+                            }
+                            ?>
+                            <?php
+                               if (isset($_SESSION['error-text']['email-format'])) {
+                                ?>
+                                <span style="font-size:14px;color:red;"><?php echo $_SESSION['error-text']['email-format']; ?></span>
+                                <?php
+                                unset($_SESSION['error-text']['email-format']);
+                            }
+                            ?>
                         </div>
                         <div class="from-group col-lg-4">
                             <label>Student Photo</label><br>
-                            <input name="sphoto" type="file" id="fileInput">
+                            <input name="sphoto" type="file" id="fileInput"><br>
+                            <?php
+                               if (isset($_SESSION['error-text']['sphoto'])) {
+                                ?>
+                                <span style="font-size:14px;color:red;"><?php echo $_SESSION['error-text']['sphoto']; ?></span>
+                                <?php
+                                unset($_SESSION['error-text']['sphoto']);
+                            }
+                            ?>
                         </div>
                         <div class="form-group col-lg-4">
                         <img id="previewImage" src="#" alt="Selected Image" style="height:70px; width:50px; display: none;">
@@ -174,7 +310,7 @@ include('configuration/connection.php');
 
                         </div>
                         <div class="form-group col-lg-12">
-                            <button type="submit" class="btn btn-success btn-block" name="btn-save">Save</button>
+                            <button type="submit" class="btn btn-block bg-dark" name="btn-save">Save</button>
                         </div>
                         </form>
                     </div>
@@ -188,6 +324,20 @@ include('configuration/connection.php');
   <!-- Include jQuery Datepicker plugin -->
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+<style>
+    .ui-datepicker-header {
+      background-color: #007BFF; /* Set your desired background color */
+      color: #ffffff; /* Set your desired font color */
+    }
+    .ui-datepicker-calendar td a.ui-state-hover {
+      background-color: #007BFF; /* Set your desired hover background color */
+      color: #ffffff; /* Set your desired hover font color */
+    }
+    .ui-datepicker-calendar td a.ui-state-active {
+      background-color: red; /* Set your desired selected background color */
+      color: red; /* Set your desired selected font color */
+    }
+</style>
 <script>
   $(function() {
     // Initialize the Datepicker
@@ -230,5 +380,5 @@ include('configuration/connection.php');
 
 <?php
 include('includes/footer.php');
-include('includes/script.php');
+// include('includes/script.php');
 ?>

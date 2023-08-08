@@ -115,7 +115,7 @@ include('configuration/connection.php');
 
 <?php
 include('includes/footer.php');
-include('includes/script.php');
+// include('includes/script.php');
 ?>
 <script type="text/javascript">
 	$(document).ready(function(){

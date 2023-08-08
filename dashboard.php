@@ -119,7 +119,7 @@ include('authentication.php');
 
 <?php
 include('includes/footer.php');
-include('includes/script.php');
+// include('includes/script.php');
 ?>
 
 

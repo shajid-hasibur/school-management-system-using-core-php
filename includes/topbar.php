@@ -32,8 +32,7 @@ include('authentication.php');
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
+              <a class="dropdown-item" href="#">Profile</a>
               <form action="logout.php" method="POST">
                   <button type="submit" name="logout_btn" class="dropdown-item">Sign Out</button>
               </form>

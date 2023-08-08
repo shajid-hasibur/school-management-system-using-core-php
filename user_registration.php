@@ -124,6 +124,3 @@ include('authentication.php');
 <?php
 include('includes/footer.php');
 ?>
-<?php 
-include('includes/script.php');
-?>
