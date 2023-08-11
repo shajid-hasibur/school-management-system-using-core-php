@@ -12,10 +12,7 @@ $conn = mysqli_connect("$host","$username","$password","$database");
 //check connection
 
 if(!$conn){
-	header('location: ../errors/database.php');
-	die();
+	die("Connection failed: " . mysqli_connect_error());
 }
-// else{
-// 	echo "database connection established";
-// }
+
 ?>

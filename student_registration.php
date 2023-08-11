@@ -1,5 +1,5 @@
 <?php
-$title = "Edit Assign Subjects of Class";
+$title = "Student Registration";
 include('includes/header.php');
 include('includes/topbar.php');
 include('includes/sidebar.php');
@@ -48,13 +48,17 @@ include('configuration/connection.php');
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
+            <?php
+                echo notification();
+                echo SuccessMessage();
+            ?>
             <div class="card">
                 <div class="card-header bg-dark">
                     <h5 class="card-title">Student Registration Form</h5>
-					<a href="assign_subject.php" class="btn btn-success btn-sm float-right"><i class="fa fa-arrow-left"></i>&nbsp;Back</a>
+					<a href="student_list.php" class="btn btn-success btn-sm float-right"><i class="fa fa-arrow-left"></i>&nbsp;Back</a>
                 </div>
                 <div class="card-body">
-                    <form action="student_code.php" method="POST">
+                    <form action="student_code.php" method="POST" enctype="multipart/form-data">
                     <div class="form-row">
                         <div class="form-group col-lg-4">
                             <label>Student's Name</label>
@@ -282,24 +286,29 @@ include('configuration/connection.php');
                                 unset($_SESSION['error-text']['email']);
                             }
                             ?>
-                            <?php
-                               if (isset($_SESSION['error-text']['email-format'])) {
-                                ?>
-                                <span style="font-size:14px;color:red;"><?php echo $_SESSION['error-text']['email-format']; ?></span>
-                                <?php
-                                unset($_SESSION['error-text']['email-format']);
-                            }
-                            ?>
                         </div>
-                        <div class="from-group col-lg-4">
+                        <!-- <div class="from-group col-lg-4">
                             <label>Student Photo</label><br>
                             <input name="sphoto" type="file" id="fileInput"><br>
+                            
+                        </div> -->
+                        <div class="from-group col-lg-4">
+                            <label for="formFileSm" class="form-label">Student Photo</label>
+                            <input class="form-control form-control-sm" id="formFileSm" type="file" name="sphoto">
                             <?php
                                if (isset($_SESSION['error-text']['sphoto'])) {
                                 ?>
                                 <span style="font-size:14px;color:red;"><?php echo $_SESSION['error-text']['sphoto']; ?></span>
                                 <?php
                                 unset($_SESSION['error-text']['sphoto']);
+                            }
+                            ?>
+                            <?php
+                               if (isset($_SESSION['error-text']['sphotoType'])) {
+                                ?>
+                                <span style="font-size:14px;color:red;"><?php echo $_SESSION['error-text']['sphotoType']; ?></span>
+                                <?php
+                                unset($_SESSION['error-text']['sphotoType']);
                             }
                             ?>
                         </div>
@@ -342,13 +351,13 @@ include('configuration/connection.php');
   $(function() {
     // Initialize the Datepicker
     $("#datepicker").datepicker({
-        dateFormat: "dd-mm-yy", // Format of the date displayed in the input
+        dateFormat: "yy-mm-dd", // Format of the date displayed in the input
         // minDate: 0, // Minimum date (0 means today)
         // maxDate: "+1y", // Maximum date (+1y means one year from today)
         showButtonPanel: false, // Show a button panel below the Datepicker
         changeMonth: true, // Allow changing months
         changeYear: true, // Allow changing years
-        yearRange: "1970:2030"
+        yearRange: "1990:2030"
     });
     
   });
@@ -356,7 +365,7 @@ include('configuration/connection.php');
 <script>
   $(document).ready(function() {
     // Handle file input change event
-    $("#fileInput").change(function() {
+    $("#formFileSm").change(function() {
       readURL(this);
     });
 

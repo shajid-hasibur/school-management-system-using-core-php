@@ -1,6 +1,6 @@
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4 bg-dark">
+<aside class="main-sidebar sidebar-dark-primary elevation-4 bg-dark">
     <!-- Brand Logo -->
     <a href="dashboard.php" class="brand-link">
       <!-- <img src="assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8"> -->
@@ -8,7 +8,7 @@
     </a>
 
     <!-- Sidebar -->
-    <div class="sidebar">
+  <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
       <!-- <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
@@ -20,8 +20,8 @@
       </div> -->
 
       <!-- Sidebar Menu -->
-      <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+    <nav class="mt-2">
+      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
            
           <li class="nav-item">
             <a href="registration.php" class="nav-link">
@@ -33,7 +33,6 @@
             </a>
           </li>
             
-
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i style="color:white;" class="nav-icon fas fa-tree"></i>
@@ -124,19 +123,27 @@
                 </p>
               </a>
               <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="student_registration.php" class="nav-link">
-                  <i style="color:white;" class="fas fa-th-large"></i>
-                  <p style="color:white;">Student Registration</p>
-                </a>
-              </li>
-            </ul>
+                <li class="nav-item">
+                  <a href="student_registration.php" class="nav-link">
+                    <i style="color:white;" class="fas fa-th-large"></i>
+                    <p style="color:white;">Student Registration</p>
+                  </a>
+                </li>
+              </ul>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="student_list.php" class="nav-link">
+                    <i style="color:white;" class="fas fa-th-large"></i>
+                    <p style="color:white;">Student List</p>
+                  </a>
+                </li>
+              </ul>
           </li>
-        </ul>
-      </nav>
+      </ul>
+    </nav>
       <!-- /.sidebar-menu -->
-    </div>
+  </div>
     <!-- /.sidebar -->
-  </aside>
+</aside>
 
   <!-- Content Wrapper. Contains page content -->

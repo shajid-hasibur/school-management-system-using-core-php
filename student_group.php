@@ -52,10 +52,10 @@ include('includes/sessions.php');
 	    <div class="container-fluid">    	
 	    	<div class="row">
 	    		<div class="col-md-4">
-		    	<?php
-					echo SuccessMessage();
-		    	?>				
-	    	</div>
+					<?php
+						echo SuccessMessage();
+					?>				
+	    		</div>
 	    		<div class="col-lg-12">
 	    			<div class="card">
 	    				<div class="card-header bg-dark">
@@ -106,7 +106,6 @@ include('includes/sessions.php');
 
 <?php
 include('includes/footer.php');
-// include('includes/script.php');
 ?>
 <script type="text/javascript">
 	$(document).ready(function(){
