@@ -88,8 +88,10 @@ if(isset($_POST['btn-save'])){
     }else{
         //image proccessing
         $target_dir = "uploads/student_images/";
-        $target_file = $target_dir . basename($_FILES["sphoto"]["name"]);
-        $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+        $original_name = $_FILES["sphoto"]["name"];
+        $imageFileType = strtolower(pathinfo($original_name, PATHINFO_EXTENSION));
+        $unique_name = time() . '_' . mt_rand() . '.' . $imageFileType;
+        $target_file = $target_dir . $unique_name;
         move_uploaded_file($_FILES["sphoto"]["tmp_name"], $target_file);
         //generating student unique id
 
@@ -137,7 +139,7 @@ if(isset($_POST['btn-save'])){
         mysqli_begin_transaction($conn);
         try{
             //insert into students
-            $sql1 = "INSERT INTO students(name,fname,mname,contact_number,address1,address2,gender,image,religion,id_no,dob) VALUES('$sname','$fname','$mname','$contact','$address1','$address2','$gender','$target_file','$religion','$finalId','$dob')";
+            $sql1 = "INSERT INTO students(name,fname,mname,contact_number,address1,address2,gender,image_path,image_name,religion,id_no,dob) VALUES('$sname','$fname','$mname','$contact','$address1','$address2','$gender','$target_file','$unique_name','$religion','$finalId','$dob')";
             $sql1_run = mysqli_query($conn,$sql1);
             if($sql1_run){
                 $student_id = mysqli_insert_id($conn);
@@ -159,7 +161,7 @@ if(isset($_POST['btn-save'])){
             $sql4_run = mysqli_query($conn,$sql4);
             mysqli_commit($conn);
             $_SESSION['SuccessMessage'] = "Student Registration Successful";
-            header("location: student_registration.php");
+            header("location: student_list.php");
 
         }catch(Exception $e){
             mysqli_rollback($conn);

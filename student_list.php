@@ -64,9 +64,12 @@ include('includes/sessions.php');
             </div>
         </div>
     </div>
-    <div class="container-fluid">
+    <div class="container-fluid">   
        <div class="row">
             <div class="col-12">
+                <?php
+                    echo SuccessMessage();
+                ?>
                 <div class="card">
                     <div class="card-header bg-dark">
                         <h5 class="card-title">Student Group</h5>
@@ -74,7 +77,7 @@ include('includes/sessions.php');
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table id="example1" class="table table-inverse table-bordered table-hover">
+                            <table id="example1" class="table table-warning table-bordered table-hover" >
                                 <thead>
                                     <tr>
                                         <th class="text-center">#</th>
@@ -102,9 +105,9 @@ include('includes/sessions.php');
                                                         <td class="text-center"><?php echo $value['code']; ?></td>
                                                         <td class="text-center">
                                                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                                                <button type="button" class="btn bg-dark btn-sm"><i class="fas fa-edit"></i></button>
-                                                                <button type="button" class="btn bg-dark btn-sm"><i class="fas fa-info-circle"></i></button>
-                                                                <button type="button" class="btn bg-dark btn-sm"><i class="fas fa-trash"></i></button>
+                                                                <a href="#" type="button" class="btn bg-dark btn-sm"><i class="fas fa-edit" style="color: red;"></i></a>
+                                                                <a href="student_details.php?student_id=<?php echo $value['student_id']?>" type="button" class="btn bg-dark btn-sm"><i class="fas fa-info-circle" style="color: red;"></i></a>
+                                                                <a href="#" type="button" class="btn bg-dark btn-sm"><i class="fas fa-trash" style="color: red;"></i></a>
                                                             </div>
                                                         </td>
                                                     </tr>
