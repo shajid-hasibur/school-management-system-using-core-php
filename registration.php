@@ -85,14 +85,14 @@ include('authentication.php');
 								<tr>
 									<th>#</th>
 									<th>Name</th>
-									<th>Email</th>
 									<th>Phone</th>
+									<th>Email</th>
 									<th>Action</th>
 								</tr>
 							</thead>
 							<tbody>
 							<?php
-								$query = "SELECT * FROM users";
+								$query = "SELECT * FROM users WHERE usertype = 1";
 								$query_run = mysqli_query($conn,$query);
 								if (mysqli_num_rows($query_run) > 0) {
 									foreach ($query_run as $key => $value) {
@@ -125,10 +125,6 @@ include('authentication.php');
 			</div>
 		</div>
 	</div>
-	
-
-
-
 </div>
 
 <?php

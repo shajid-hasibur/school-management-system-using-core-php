@@ -120,4 +120,16 @@ if(isset($_POST['btn-update'])){
     
 }
 
+if(isset($_POST['delete-btn'])){
+    $id = $_POST['delete_record'];
+    $page_id = $_POST['page_id'];
+
+    $url = 'fee_category_amount_details.php?fee_category_id='.$page_id;
+    
+    $sql = "DELETE FROM fee_category_amounts WHERE id = '$id'";
+    $sql_run = mysqli_query($conn,$sql);
+    $_SESSION['SuccessMessage'] = "Record deleted successfully";
+    header("location: $url");
+}
+
 ?>

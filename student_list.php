@@ -105,9 +105,9 @@ include('includes/sessions.php');
                                                         <td class="text-center"><?php echo $value['code']; ?></td>
                                                         <td class="text-center">
                                                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                                                <a href="#" type="button" class="btn bg-dark btn-sm"><i class="fas fa-edit" style="color: red;"></i></a>
-                                                                <a href="student_details.php?student_id=<?php echo $value['student_id']?>" type="button" class="btn bg-dark btn-sm"><i class="fas fa-info-circle" style="color: red;"></i></a>
-                                                                <a href="#" type="button" class="btn bg-dark btn-sm"><i class="fas fa-trash" style="color: red;"></i></a>
+                                                                
+                                                                <a href="student_details.php?student_id=<?php echo $value['student_id']?>" type="button" class="btn bg-dark btn-sm"><i class="fas fa-info-circle" title="Details" style="color: red;"></i></a>
+                                                                
                                                             </div>
                                                         </td>
                                                     </tr>

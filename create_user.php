@@ -4,7 +4,7 @@ include('configuration/connection.php');
 
 if (isset($_POST['add_user'])) {
 	$finalPass = '';
-	$nameErr = $phoneErr = $emailError = $passwordErr = $cpassword = '';
+	$nameErr = $phoneErr = $emailError = $passwordErr = $cpassword = $usertype = '';
 	// $name = $phone = $email = $password = $cpassword = '';
 
 	if (empty($_POST['name'])) {
@@ -27,8 +27,12 @@ if (isset($_POST['add_user'])) {
 		$_SESSION['cpassword'] = "confirm password is required";
 		$cpassword = 1;
 	}
+	if (empty($_POST['usertype'])) {
+		$_SESSION['usertype'] = "Please select a usertype";
+		$usertype = 1;
+	}
 
-	$total = (int)$nameErr+(int)$phoneErr+(int)$emailError+(int)$passwordErr+(int)$cpassword;
+	$total = (int)$nameErr+(int)$phoneErr+(int)$emailError+(int)$passwordErr+(int)$cpassword+(int)$usertype;
 
 
 	
@@ -37,6 +41,7 @@ if (isset($_POST['add_user'])) {
 	$email = $_POST['email'];
 	$password = $_POST['password'];
 	$cpassword = $_POST['cpassword'];
+	$user_type = $_POST['usertype'];
 
 	if ($password == $cpassword) {
 		$finalPass = $password;
@@ -44,7 +49,7 @@ if (isset($_POST['add_user'])) {
 		$_SESSION['unmatch_pass'] = "Password and confirm password does not match";
 	}
 	
-	$encryptPass = md5($finalPass); 
+	$encryptPass = password_hash($finalPass, PASSWORD_BCRYPT); 
 
 	$check_mail_query = "SELECT email FROM users WHERE email='$email'";
 	$check_mail_query_run = mysqli_query($conn,$check_mail_query);
@@ -58,7 +63,7 @@ if (isset($_POST['add_user'])) {
 
 	if ($total == '0' && $password == $cpassword && $record == '0') {
 
-			$query = "INSERT INTO users (name,phone,email,password) VALUES('$name','$phone','$email','$encryptPass')";
+			$query = "INSERT INTO users (name,usertype,phone,email,password) VALUES('$name','$user_type','$phone','$email','$encryptPass')";
 			$query_run = mysqli_query($conn,$query);
 
 			if ($query_run) {

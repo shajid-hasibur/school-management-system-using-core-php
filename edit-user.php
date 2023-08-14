@@ -48,6 +48,7 @@ include('configuration/connection.php');
 	    									$name = $value['name'];
 	    									$phone = $value['phone'];
 	    									$email = $value['email'];
+											$usertype = $value['usertype'];
 	    								}
 	    							}else{
 	    								echo "No records found";
@@ -56,41 +57,105 @@ include('configuration/connection.php');
 	    					?>
 	    					<div class="row">
 	    						<div class="col-md-6">
-	    							<form action="user-update-code.php" method="POST">
-	    								<input type="hidden" name="user_id" value="<?php echo $user_id ?>">
-		    							<div class="form-group">
-		    								<label>Name</label>
-		    								<input type="text" name="name" value="<?php echo $name ?>" class="form-control" placeholder="Enter Name">
-		    							</div>
-		    							<div class="form-group">
-		    								<label>Phone</label>
-		    								<input type="text" name="phone" value="<?php echo $phone ?>" class="form-control" placeholder="Enter Phone">
-		    							</div>
-		    							<div class="form-group">
-		    								<label>Email</label>
-		    								<input type="email" name="email" value="<?php echo $email ?>" class="form-control" placeholder="Enter Email">
-		    							</div>
-		    							<div class="form-group">
-		    								<label>Password</label>
-		    								<input type="password" name="password" class="form-control" placeholder="Enter Password">
-		    							</div>
-		    							<div class="form-group">
-		    								<label>Confirm Password</label>
-		    								<input type="password" name="cpassword" class="form-control" placeholder="Enter confirm password">
-		    								<?php
-		    									if (isset($_SESSION['unmatch_pass'])) {
-		    										?>
-		    											<span style="font-size:14px;color:red;"><?php echo $_SESSION['unmatch_pass']; ?></span>
-		    										<?php
-		    										unset($_SESSION['unmatch_pass']);
-		    									}
-		    								?>
-		    							</div>
-		    							<div class="form-group">
-		    								<button class="btn btn-primary btn-outline-light" type="submit" name="update-btn">Update</button>
-		    							</div>
-	    							</form>
+	    							
 	    						</div>
+								<div class="card col-12">
+									<div class="card-body mt-3 mb-3 d-flex justify-content-center align-items-center">
+									<form action="user-update-code.php" method="POST">
+	    								<input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
+		    							<div class="form-row">
+											<div class="form-group col-4">
+												<label>Name</label>
+												<input type="text" name="name" value="<?php echo $name; ?>" class="form-control" placeholder="Enter Name">
+												<?php
+													if (isset($_SESSION['name'])) {
+														?>
+															<span style="font-size:14px;color:red;"><?php echo $_SESSION['name']; ?></span>
+														<?php
+														unset($_SESSION['name']);
+													}
+												?>
+											</div>
+											<div class="form-group col-4">
+												<label>Phone</label>
+												<input type="text" name="phone" value="<?php echo $phone;?>" class="form-control" placeholder="Enter Phone">
+												<?php
+													if (isset($_SESSION['phone'])) {
+														?>
+															<span style="font-size:14px;color:red;"><?php echo $_SESSION['phone']; ?></span>
+														<?php
+														unset($_SESSION['phone']);
+													}
+												?>
+											</div>
+											<div class="form-group col-4">
+												<label>Email</label>
+												<input type="email" name="email" value="<?php echo $email; ?>" class="form-control" placeholder="Enter Email">
+												<?php
+													if (isset($_SESSION['email'])) {
+														?>
+															<span style="font-size:14px;color:red;"><?php echo $_SESSION['email']; ?></span>
+														<?php
+														unset($_SESSION['email']);
+													}
+												?>
+											</div>
+											<div class="form-group col-4">
+												<label>Password</label>
+												<input type="password" name="password" class="form-control" placeholder="Enter Password">
+												<?php
+													if (isset($_SESSION['password'])) {
+														?>
+															<span style="font-size:14px;color:red;"><?php echo $_SESSION['password']; ?></span>
+														<?php
+														unset($_SESSION['password']);
+													}
+												?>
+											</div>
+											<div class="form-group col-4">
+												<label>Confirm Password</label>
+												<input type="password" name="cpassword" class="form-control" placeholder="Enter confirm password">
+												<?php
+													if (isset($_SESSION['unmatch_pass'])) {
+														?>
+															<span style="font-size:14px;color:red;"><?php echo $_SESSION['unmatch_pass']; ?></span>
+														<?php
+														unset($_SESSION['unmatch_pass']);
+													}
+												?>
+												<?php
+													if (isset($_SESSION['cpassword'])) {
+														?>
+															<span style="font-size:14px;color:red;"><?php echo $_SESSION['cpassword']; ?></span>
+														<?php
+														unset($_SESSION['cpassword']);
+													}
+												?>
+												
+											</div>
+											<div class="form-group col-4">
+												<label>Usertype</label>
+												<select name="usertype" class="form-control">
+													<option value="">Select Usertype</option>
+													<option value="1" <?php if ($usertype === '1') echo 'selected'; ?>>Admin</option>
+													<option value="2" <?php if ($usertype === '2') echo 'selected'; ?>>Employee</option>
+												</select>
+												<?php
+													if (isset($_SESSION['usertype'])) {
+														?>
+															<span style="font-size:14px;color:red;"><?php echo $_SESSION['usertype']; ?></span>
+														<?php
+														unset($_SESSION['usertype']);
+													}
+												?>
+											</div>
+											<div class="form-group col-12">
+												<button class="btn btn-success btn-block" type="submit" name="update-btn">Update</button>
+											</div>
+										</div>
+	    							</form>
+									</div>
+								</div>
 	    					</div>
 	    				</div>
 	    			</div>
