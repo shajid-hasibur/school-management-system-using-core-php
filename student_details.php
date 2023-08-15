@@ -1,5 +1,5 @@
 <?php
-$title = "Student List";
+$title = "Student Profile";
 include('includes/header.php');
 include('includes/topbar.php');
 include('includes/sidebar.php');
@@ -25,24 +25,20 @@ include('includes/sessions.php');
                     </div>
                     <div class="modal-body">
                         <label>To</label>
-                        <input type="text" class="form-control form-control-sm" name="to" id="to">
+                        <input type="text" class="form-control form-control-sm" name="to" id="to" readonly>
                         <label>Subject</label>
                         <input type="text" class="form-control form-control-sm" name="mail_subject">
                         <label>Body</label>
                         <textarea name="mail_body" class="form-control form-control-sm" id="" cols="30" rows="10"></textarea>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" name="btn-send" class="btn btn-danger">Send</button>
+                        <button type="submit" name="btn-send" class="btn btn-danger btn-block"><i class="fa fa-paper-plane" aria-hidden="true"></i>&nbsp;Send</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
     <?php
-    //getting the student id from url
-    // if (isset($_GET['student_id'])) {
-    //     $student_id = $_GET['student_id'];
-    // }
 
     $sql = "SELECT students.*,assign_students.*,discount_students.*,users.email,users.code
     FROM students
@@ -81,10 +77,6 @@ include('includes/sessions.php');
     }
 
     $image_path = $row['image_path'];
-    // echo $image_path;
-    // echo "<pre>";
-    // print_r($result_array);
-    // echo "</pre>";
     ?>
     <div class="content-header">
         <div class="container-fluid">
@@ -106,6 +98,7 @@ include('includes/sessions.php');
             <div class="col-12">
                 <?php
                     echo SuccessMessage();
+                    echo notification();
                 ?>
                 <div class="card">
                     <div class="card-header bg-dark">
@@ -118,7 +111,7 @@ include('includes/sessions.php');
                                 <div class="card mb-4">
                                     <div class="card-body text-center" style="background-color: #d1f4ff">
                                         <?php
-                                        echo '<img class=" img-fluid" style="width: 110px; height: 150px;"  src="' . $image_path . '" alt="Student Image">';
+                                        echo '<img class="img-fluid" style="width: 110px; height: 150px; border:4px solid white; padding:5px;"  src="' . $image_path . '" alt="Student Image">';
                                         ?>
                                         <h5 class="my-3"><?php echo $row['name']; ?></h5>
                                         <strong>
@@ -150,110 +143,146 @@ include('includes/sessions.php');
                                     <div class="card-body" style="background-color: #d1f4ff">
                                         <div class="row">
                                             <div class="col-sm-3">
-                                                <p class="mb-0">Student Name</p>
+                                                <strong><p class="mb-0">Student Name</p></strong>
                                             </div>
-                                            <div class="col-sm-9">
-                                                <p class="text-muted mb-0"><?php echo $row['name']; ?></p>
+                                            <div class="col-sm-1">
+                                                <strong><p>:</p></strong>
                                             </div>
-                                        </div>
-                                        <hr>
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <p class="mb-0">Father's Name</p>
-                                            </div>
-                                            <div class="col-sm-9">
-                                                <p class="text-muted mb-0"><?php echo $row['fname']; ?></p>
+                                            <div class="col-sm-8">
+                                                <strong><p class="text-muted mb-0"><?php echo $row['name']; ?></p></strong>
                                             </div>
                                         </div>
                                         <hr>
                                         <div class="row">
                                             <div class="col-sm-3">
-                                                <p class="mb-0">Mother's Name</p>
+                                                <strong><p class="mb-0">Father's Name</p></strong>
                                             </div>
-                                            <div class="col-sm-9">
-                                                <p class="text-muted mb-0"><?php echo $row['mname']; ?></p>
+                                            <div class="col-sm-1">
+                                                <strong><p>:</p></strong>
                                             </div>
-                                        </div>
-                                        <hr>
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <p class="mb-0">Gender</p>
-                                            </div>
-                                            <div class="col-sm-9">
-                                                <p class="text-muted mb-0"><?php echo $row['gender']; ?></p>
+                                            <div class="col-sm-8">
+                                                <strong><p class="text-muted mb-0"><?php echo $row['fname']; ?></p></strong>
                                             </div>
                                         </div>
                                         <hr>
                                         <div class="row">
                                             <div class="col-sm-3">
-                                                <p class="mb-0">Religion</p>
+                                                <strong><p class="mb-0">Mother's Name</p></strong>
                                             </div>
-                                            <div class="col-sm-9">
-                                                <p class="text-muted mb-0"><?php echo $row['religion']; ?></p>
+                                            <div class="col-sm-1">
+                                                <strong><p>:</p></strong>
                                             </div>
-                                        </div>
-                                        <hr>
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <p class="mb-0">Date of Birth</p>
-                                            </div>
-                                            <div class="col-sm-9">
-                                                <p class="text-muted mb-0"><?php echo $row['dob']; ?></p>
+                                            <div class="col-sm-8">
+                                                <strong><p class="text-muted mb-0"><?php echo $row['mname']; ?></p></strong>
                                             </div>
                                         </div>
                                         <hr>
                                         <div class="row">
                                             <div class="col-sm-3">
-                                                <p class="mb-0">Registration Date</p>
+                                                <strong><p class="mb-0">Gender</p></strong>
                                             </div>
-                                            <div class="col-sm-9">
-                                                <p class="text-muted mb-0"><?php echo $row['created_at']; ?></p>
+                                            <div class="col-sm-1">
+                                                <strong><p>:</p></strong>
+                                            </div>
+                                            <div class="col-sm-8">
+                                               <strong> <p class="text-muted mb-0"><?php echo $row['gender']; ?></p></strong>
                                             </div>
                                         </div>
                                         <hr>
                                         <div class="row">
                                             <div class="col-sm-3">
-                                                <p class="mb-0">Email</p>
+                                                <strong><p class="mb-0">Religion</p></strong>
                                             </div>
-                                            <div class="col-sm-9">
-                                                <p  class="text-muted mb-0"><?php echo $row['email']; ?></p>
+                                            <div class="col-sm-1">
+                                                <strong><p>:</p></strong>
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <strong><p class="text-muted mb-0"><?php echo $row['religion']; ?></p></strong>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <strong><p class="mb-0">Date of Birth</p></strong>
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <strong><p>:</p></strong>
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <strong><p class="text-muted mb-0"><?php echo $row['dob']; ?></p></strong>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <strong><p class="mb-0">Registration Date</p></strong>
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <strong><p>:</p></strong>
+                                            </div>
+                                            <div class="col-sm-8">
+                                               <strong> <p class="text-muted mb-0"><?php echo $row['created_at']; ?></p></strong>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <strong><p class="mb-0">Email</p></strong>
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <strong><p>:</p></strong>
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <strong><p  class="text-muted mb-0"><?php echo $row['email']; ?></p></strong>
                                                 <input type="hidden" id="get-mail" value="<?php echo $row['email']; ?>">
                                             </div>
                                         </div>
                                         <hr>
                                         <div class="row">
                                             <div class="col-sm-3">
-                                                <p class="mb-0">Phone</p>
+                                                <strong><p class="mb-0">Phone</p></strong>
                                             </div>
-                                            <div class="col-sm-9">
-                                                <p class="text-muted mb-0"><?php echo $row['contact_number']; ?></p>
+                                            <div class="col-sm-1">
+                                                <strong><p>:</p></strong>
                                             </div>
-                                        </div>
-                                        <hr>
-                                        <div class="row">
-                                            <div class="col-sm-3">
-                                                <p class="mb-0">Present Address</p>
-                                            </div>
-                                            <div class="col-sm-9">
-                                                <p class="text-muted mb-0"><?php echo $row['address1']; ?></p>
+                                            <div class="col-sm-8">
+                                                <strong><p class="text-muted mb-0"><?php echo $row['contact_number']; ?></p></strong>
                                             </div>
                                         </div>
                                         <hr>
                                         <div class="row">
                                             <div class="col-sm-3">
-                                                <p class="mb-0">Permanent Address</p>
+                                                <strong><p class="mb-0">Present Address</p></strong>
                                             </div>
-                                            <div class="col-sm-9">
-                                                <p class="text-muted mb-0"><?php echo $row['address2']; ?></p>
+                                            <div class="col-sm-1">
+                                                <strong><p>:</p></strong>
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <strong><p class="text-muted mb-0"><?php echo $row['address1']; ?></p></strong>
                                             </div>
                                         </div>
                                         <hr>
                                         <div class="row">
                                             <div class="col-sm-3">
-                                                <p class="mb-0">Login Password</p>
+                                                <strong><p class="mb-0">Permanent Address</p></strong>
                                             </div>
-                                            <div class="col-sm-9">
-                                                <p class="text-muted mb-0"><?php echo $row['code']; ?></p>
+                                            <div class="col-sm-1">
+                                                <strong><p>:</p></strong>
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <strong><p class="text-muted mb-0"><?php echo $row['address2']; ?></p></strong>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <strong><p class="mb-0">Login Password</p></strong>
+                                            </div>
+                                            <div class="col-sm-1">
+                                                <strong><p>:</p></strong>
+                                            </div>
+                                            <div class="col-sm-8">
+                                                <strong><p class="text-muted mb-0"><?php echo $row['code']; ?></p></strong>
                                             </div>
                                         </div>
                                     </div>
@@ -262,9 +291,9 @@ include('includes/sessions.php');
                             <div class="col-lg-12">
                                 <div class="card" style="background-color: #d1f4ff">
                                     <div class="card-body mt-3 mb-3 d-flex justify-content-center align-items-center">
-                                        <a href="" class="btn bg-dark" style="width: 180px;"><i class="fas fa-graduation-cap" style="color: red;"></i>&nbsp;Promotion</a>
+                                        <a href="student_promotion.php?student_id=<?php echo $student_id; ?>" class="btn bg-dark" style="width: 180px;"><i class="fas fa-graduation-cap" style="color: red;"></i>&nbsp;Promotion</a>
                                         <a href="" class="btn bg-dark" style="width: 180px; margin-left: 10px;"><i class="fas fa-trash" style="color: red;"></i>&nbsp;Delete Record</a>
-                                        <a href="" class="btn bg-dark" style="width: 180px; margin-left: 10px;"><i class="fas fa-edit" style="color: red;"></i>&nbsp;Update Information</a>
+                                        <a href="student_update.php?student_id=<?php echo $student_id;?>" class="btn bg-dark" style="width: 180px; margin-left: 10px;"><i class="fas fa-edit" style="color: red;"></i>&nbsp;Update Information</a>
                                     </div>
                                 </div>
                             </div>

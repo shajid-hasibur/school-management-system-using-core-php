@@ -3,8 +3,8 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4 bg-dark">
     <!-- Brand Logo -->
     <a href="dashboard.php" class="brand-link">
-      <!-- <img src="assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8"> -->
-      <span class="brand-text font-weight-light">School Management System</span>
+      <img src="assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light">PHPSMS</span>
     </a>
 
     <!-- Sidebar -->
@@ -25,7 +25,7 @@
            
           <li class="nav-item">
             <a href="registration.php" class="nav-link">
-                <i style="color:white;" class="nav-icon fas fa-users"></i>
+                <i style="color:green;" class="nav-icon fas fa-users"></i>
                 <p style="color:white;">
                 Users
                  <!-- <i class="fas fa-angle-left right"></i> -->
@@ -35,7 +35,7 @@
             
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i style="color:white;" class="nav-icon fas fa-tree"></i>
+              <i style="color:green;" class="nav-icon fas fa-tree"></i>
               <p style="color:white;">
                 Environment Setup
                 <i class="fas fa-angle-left right"></i>
@@ -44,7 +44,7 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="student-year.php" class="nav-link">
-                  <i style="color:white;" class="fas fa-calendar"></i>
+                  <i style="color:green;" class="fas fa-calendar"></i>
                   <p style="color:white;">Student Year</p>
                 </a>
               </li>
@@ -52,7 +52,7 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="student_class.php" class="nav-link">
-                  <i style="color:white;" class="fas fa-clipboard"></i>
+                  <i style="color:green;" class="fas fa-clipboard"></i>
                   <p style="color:white;">Student Class</p>
                 </a>
               </li>
@@ -60,7 +60,7 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="student_group.php" class="nav-link">
-                  <i style="color:white;" class="fas fa-users"></i>
+                  <i style="color:green;" class="fas fa-users"></i>
                   <p style="color:white;">Student Group</p>
                 </a>
               </li>
@@ -68,7 +68,7 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="student_section.php" class="nav-link">
-                  <i style="color:white;" class="fas fa-th-large"></i>
+                  <i style="color:green;" class="fas fa-th-large"></i>
                   <p style="color:white;">Student Section</p>
                 </a>
               </li>
@@ -76,7 +76,7 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="fee_category.php" class="nav-link">
-                  <i style="color:white;" class="fas fa-th-large"></i>
+                  <i style="color:green;" class="fas fa-th-large"></i>
                   <p style="color:white;">Fee Category</p>
                 </a>
               </li>
@@ -84,7 +84,7 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="fee_category_amount.php" class="nav-link">
-                  <i style="color:white;" class="fas fa-th-large"></i>
+                  <i style="color:green;" class="fas fa-th-large"></i>
                   <p style="color:white;">Fee Category Amount</p>
                 </a>
               </li>
@@ -92,7 +92,7 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="exam_type.php" class="nav-link">
-                  <i style="color:white;" class="fas fa-th-large"></i>
+                  <i style="color:green;" class="fas fa-th-large"></i>
                   <p style="color:white;">Exam Types</p>
                 </a>
               </li>
@@ -100,7 +100,7 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="subject.php" class="nav-link">
-                  <i style="color:white;" class="fas fa-th-large"></i>
+                  <i style="color:green;" class="fas fa-th-large"></i>
                   <p style="color:white;">Subjects</p>
                 </a>
               </li>
@@ -108,7 +108,7 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="assign_subject.php" class="nav-link">
-                  <i style="color:white;" class="fas fa-th-large"></i>
+                  <i style="color:green;" class="fas fa-th-large"></i>
                   <p style="color:white;">Assign Subjects</p>
                 </a>
               </li>
@@ -116,7 +116,7 @@
           </li>
           <li class="nav-item">
               <a href="#" class="nav-link">
-                <i style="color:white;" class="nav-icon fas fa-tree"></i>
+              <i class="fas fa-graduation-cap" style="color: green;"></i>
                 <p style="color:white;">
                   Students
                   <i class="fas fa-angle-left right"></i>
@@ -125,7 +125,7 @@
               <ul class="nav nav-treeview">
                 <li class="nav-item">
                   <a href="student_registration.php" class="nav-link">
-                    <i style="color:white;" class="fas fa-th-large"></i>
+                    <i style="color:green;" class="fas fa-plus-circle"></i>
                     <p style="color:white;">Student Registration</p>
                   </a>
                 </li>
@@ -133,7 +133,7 @@
               <ul class="nav nav-treeview">
                 <li class="nav-item">
                   <a href="student_list.php" class="nav-link">
-                    <i style="color:white;" class="fas fa-th-large"></i>
+                    <i style="color:green;" class="fas fa-list"></i>
                     <p style="color:white;">Student List</p>
                   </a>
                 </li>
