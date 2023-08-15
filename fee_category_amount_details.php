@@ -49,7 +49,7 @@ include('includes/sessions.php');
                     </div>
                     <div class="modal-footer">
                         <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
-                        <button type="submit" name="delete-btn" class="btn btn-danger">Confirm</button>
+                        <button type="submit" name="delete-btn" class="btn btn-danger btn-block">Confirm</button>
                     </div>
                 </form>
             </div>

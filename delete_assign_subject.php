@@ -25,7 +25,7 @@ include('configuration/connection.php');
       </div>
       <div class="modal-footer">
         <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
-        <button type="submit" name="deleteAssignSubject" class="btn btn-danger">Yes, Delete!</button>
+        <button type="submit" name="deleteAssignSubject" class="btn btn-danger btn-block">Yes, Delete!</button>
       </div>
     </div>
   </div>
@@ -72,7 +72,7 @@ include('configuration/connection.php');
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table id="example1" class="table table-bordered table-hover">
+                        <table id="example1" class="table table-bordered table-hover table-warning">
                             <thead class="bg-dark">
                                 <th class="text-center">#</th>
                                 <th class="text-center">Subject</th>
@@ -95,7 +95,7 @@ include('configuration/connection.php');
                                             <td class="text-center"><?php echo $value['full_mark']; ?></td>
                                             <td class="text-center"><?php echo $value['pass_mark']; ?></td>
                                             <td class="text-center">
-                                            <button value="<?php echo $value['id']?>" type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-sm delete-btn bg-dark"><i class="fas fa-trash"></i></button>
+                                            <button value="<?php echo $value['id']?>" type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-sm delete-btn bg-dark"><i class="fas fa-trash" style="color: red;"></i></button>
                                             </td>
                                         </tr>
                                         <?php

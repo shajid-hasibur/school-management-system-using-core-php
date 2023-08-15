@@ -13,7 +13,7 @@ include('configuration/connection.php');
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header bg-red">
                     <h5 class="modal-title" id="exampleModalLabel">Delete Subjects</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -25,7 +25,7 @@ include('configuration/connection.php');
                 </div>
                 <div class="modal-footer">
                     <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
-                    <button type="submit" name="deleteSubBtn" class="btn btn-primary">Yes, Delete!</button>
+                    <button type="submit" name="deleteSubBtn" class="btn btn-danger btn-block">Yes, Delete!</button>
                 </div>
             </div>
         </div>
@@ -61,7 +61,7 @@ include('configuration/connection.php');
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table id="example1" class="table table-bordered table-hover">
+                        <table id="example1" class="table table-bordered table-hover table-warning">
                             <thead class="bg-dark">
                                 <th class="text-center">#</th>
                                 <th class="text-center">Class</th>
@@ -81,9 +81,9 @@ include('configuration/connection.php');
                                             <td class="text-center"><?php echo $key+1?></td>
                                             <td class="text-center"><?php echo $value['name']?></td>
                                             <td class="text-center">
-                                                <a href="edit_assign_subject.php?class_id=<?php echo $value['class_id'] ?>" class="btn btn-sm bg-dark"><i class="fas fa-edit"></i></a>
-                                                <a href="assign_subject_details.php?class_id=<?php echo $value['class_id'] ?>" class="btn btn-sm bg-dark"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
-                                                <a href="delete_assign_subject.php?class_id=<?php echo $value['class_id'] ?>" class="btn btn-sm bg-dark"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                                                <a href="edit_assign_subject.php?class_id=<?php echo $value['class_id'] ?>" class="btn btn-sm bg-dark"><i class="fas fa-edit" style="color: red;"></i></a>
+                                                <a href="assign_subject_details.php?class_id=<?php echo $value['class_id'] ?>" class="btn btn-sm bg-dark"><i class="fa fa-info-circle" aria-hidden="true" style="color: red;"></i></a>
+                                                <a href="delete_assign_subject.php?class_id=<?php echo $value['class_id'] ?>" class="btn btn-sm bg-dark"><i class="fa fa-trash" aria-hidden="true" style="color: red;"></i></a>
                                             </td>
                                         </tr>
                                         <?php
