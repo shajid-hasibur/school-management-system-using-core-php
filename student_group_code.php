@@ -44,18 +44,27 @@ if(isset($_POST['btn-update'])){
     }
 }
 
-if(isset($_POST['deleteGroupBtn'])){
+if (isset($_POST['deleteGroupBtn'])) {
     $delete_id = $_POST['delete_id'];
-    
-    $query = "DELETE FROM groups WHERE id='$delete_id' ";
-    $query_run = mysqli_query($conn,$query);
 
-    if($query_run){
-        $_SESSION['SuccessMessage'] = "Group deleted successfully";
-        header("location: student_group.php");
-    }else{
-        $_SESSION['SuccessMessage'] = "Group deletion failed";
-        header("location: student_group.php");
+    $check_usage_query = "SELECT COUNT(*) AS usage_count FROM assign_students WHERE group_id = '$delete_id'";
+    $check_usage_result = mysqli_query($conn, $check_usage_query);
+    if ($check_usage_result) {
+        $usage_count = mysqli_fetch_assoc($check_usage_result)['usage_count'];
+        if ($usage_count > 0) {
+            $_SESSION['notification'] = "Group deletion failed! This group is in use cannot be deleted.";
+            header("location: student_group.php");
+        } else {
+            $query = "DELETE FROM groups WHERE id='$delete_id' ";
+            $query_run = mysqli_query($conn, $query);
+            if ($query_run) {
+                $_SESSION['SuccessMessage'] = "Group deleted successfully.";
+                header("location: student_group.php");
+            } else {
+                $_SESSION['notification'] = "Something went wrong!";
+                header("location: student_group.php");
+            }
+        }
     }
 }
 ?>

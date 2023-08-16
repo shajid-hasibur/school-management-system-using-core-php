@@ -3,6 +3,7 @@ $title = "Student Class";
 include('includes/header.php');
 include('includes/topbar.php');
 include('includes/sidebar.php');
+include('includes/sessions.php');
 include('authentication.php');
 include('configuration/connection.php');
 ?>
@@ -65,6 +66,10 @@ include('configuration/connection.php');
 		    	?>				
 	    	</div>
 	    		<div class="col-lg-12">
+					<?php
+						echo notification();
+						echo SuccessMessage();
+					?>
 	    			<div class="card">
 	    				<div class="card-header bg-dark">
 	    					<h5 class="card-title">Student Class</h5>

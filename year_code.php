@@ -42,7 +42,7 @@ if(isset($_POST['deleteYearBtn'])){
 	if($check_usage_result){
 		$usage_count = mysqli_fetch_assoc($check_usage_result)['usage_count'];
 		if($usage_count > 0){
-			$_SESSION['notification'] = "Year deletion failed. This year is in use cannot be deleted!";
+			$_SESSION['notification'] = "Year deletion failed! This year is in use cannot be deleted.";
 			header("location: student-year.php");
 		}else{
 			$query = "DELETE FROM years WHERE id='$yearId'";

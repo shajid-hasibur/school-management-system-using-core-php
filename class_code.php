@@ -64,17 +64,25 @@ if (isset($_POST['btn-update'])) {
 
 	if(isset($_POST['deleteClassBtn'])){
 		$classId = $_POST['delete_id'];
-		$query = "DELETE FROM Classes WHERE id='$classId'";
-		$query_run = mysqli_query($conn,$query);
-
-		if ($query_run) {
-			$_SESSION['status'] = "Class deleted successfully";
-			header("location: student_class.php");
-			
-		}else{
-			$_SESSION['status'] = "Class deletion failed";
-			header("location: student_class.php");
+		
+		$check_usage_query = "SELECT COUNT(*) AS usage_count FROM assign_students WHERE class_id = '$classId'";
+		$check_usage_result = mysqli_query($conn, $check_usage_query);
+		if ($check_usage_result) {
+			$usage_count = mysqli_fetch_assoc($check_usage_result)['usage_count'];
+			if ($usage_count > 0) {
+				$_SESSION['notification'] = "Class deletion failed! This class is in use cannot be deleted.";
+				header("location: student_class.php");
+			} else {
+				$query = "DELETE FROM Classes WHERE id='$classId'";
+				$query_run = mysqli_query($conn,$query);
+				if ($query_run) {
+					$_SESSION['SuccessMessage'] = "Class deleted successfully.";
+					header("location: student_class.php");
+				} else {
+					$_SESSION['notification'] = "Something went wrong!";
+					header("location: student_class.php");
+				}
+			}
 		}
-
 	}
 ?>

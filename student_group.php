@@ -51,12 +51,11 @@ include('includes/sessions.php');
 
 	    <div class="container-fluid">    	
 	    	<div class="row">
-	    		<div class="col-md-4">
+	    		<div class="col-lg-12">
 					<?php
 						echo SuccessMessage();
-					?>				
-	    		</div>
-	    		<div class="col-lg-12">
+						echo notification();
+					?>
 	    			<div class="card">
 	    				<div class="card-header bg-dark">
 	    					<h5 class="card-title">Student Group</h5>
