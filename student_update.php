@@ -107,6 +107,7 @@ include('configuration/connection.php');
                 </div>
                 <div class="card-body">
                     <form action="student_code.php" method="POST" enctype="multipart/form-data">
+                        <input type="hidden" name="student_id" value="<?php echo $student_id; ?>">
                     <div class="form-row">
                         <div class="form-group col-lg-4">
                             <label>Student's Name</label>
@@ -369,7 +370,7 @@ include('configuration/connection.php');
                         ?>
                         </div>
                         <div class="form-group col-lg-12">
-                            <button type="submit" class="btn btn-block bg-dark" name="btn-save">Update</button>
+                            <button type="submit" class="btn btn-block bg-dark" name="btn-update">Update</button>
                         </div>
                         </form>
                     </div>

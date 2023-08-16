@@ -36,17 +36,25 @@ if (isset($_POST['btn-save'])) {
 
 if(isset($_POST['deleteYearBtn'])){
 	$yearId = $_POST['delete_id'];
-		$query = "DELETE FROM years WHERE id='$yearId'";
-		$query_run = mysqli_query($conn,$query);
 
-		if ($query_run) {
-			$_SESSION['status'] = "Year deleted successfully";
+	$check_usage_query = "SELECT COUNT(*) AS usage_count FROM assign_students WHERE year_id = '$yearId'";
+	$check_usage_result = mysqli_query($conn,$check_usage_query);
+	if($check_usage_result){
+		$usage_count = mysqli_fetch_assoc($check_usage_result)['usage_count'];
+		if($usage_count > 0){
+			$_SESSION['notification'] = "Year deletion failed. This year is in use cannot be deleted!";
 			header("location: student-year.php");
-			
 		}else{
-			$_SESSION['status'] = "Year deletion failed";
-			header("location: student-year.php");
+			$query = "DELETE FROM years WHERE id='$yearId'";
+			$query_run = mysqli_query($conn,$query);
+			if($query_run){
+				$_SESSION['SuccessMessage'] = "Year deleted successfully";
+				header("location: student-year.php");
+			}else{
+				$_SESSION['notification'] = "Something went wrong!";
+				header("location: student-year.php");
+			}
 		}
-
 	}
+}
 ?>
