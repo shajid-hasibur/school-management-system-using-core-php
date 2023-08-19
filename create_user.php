@@ -102,6 +102,6 @@ if (isset($_POST['deleteUserBtn'])) {
 ?>
 
 <?php
-include('includes/footer.php');
+// include('includes/footer.php');
 // include('includes/script.php');
 ?>

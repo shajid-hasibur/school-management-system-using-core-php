@@ -1,5 +1,6 @@
 <?php
-include('authentication.php');
+$basePath = $_SERVER['DOCUMENT_ROOT'];
+include($basePath.'/PHP_SCHOOL/sms/admin/authentication.php');
 ?>
 <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-dark navbar-light bg-dark">
@@ -9,7 +10,7 @@ include('authentication.php');
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="dashboard.php" class="nav-link">Home</a>
+        <a href="<?php $basePath; ?>/PHP_SCHOOL/sms/admin/dashboard.php" class="nav-link">Home</a>
       </li>
       <!-- <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
