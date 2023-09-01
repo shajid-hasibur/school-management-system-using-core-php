@@ -32,6 +32,10 @@ include('authentication.php');
         <div class="row">
           <div class="col-lg-12">
             <?php
+                include('message.php');
+                $basePath = $_SERVER['DOCUMENT_ROOT'];
+                include($basePath . '/PHP_SCHOOL/sms/admin/configuration/database.php');
+
                 if (isset($_SESSION['status-logged'])) {
                   ?>
                     <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -43,9 +47,12 @@ include('authentication.php');
                   <?php
                    unset($_SESSION['status-logged']);
                 }
-            ?>
-            <?php
-               include('message.php');
+
+                // getting total students
+                $database = new Database();
+                $database->select('students','*','','','','');
+                $students = $database->getResult();
+                $total_student = count($students);
             ?>
           </div>
           <div class="col-lg-3 col-6">
@@ -82,9 +89,8 @@ include('authentication.php');
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-                <h3>44</h3>
-
-                <p>User Registrations</p>
+                <h3><?php echo $total_student; ?></h3>
+                <p>Total Students</p>
               </div>
               <div class="icon">
                 <i class="ion ion-person-add"></i>
@@ -119,7 +125,6 @@ include('authentication.php');
 
 <?php
 include('includes/footer.php');
-// include('includes/script.php');
 ?>
 
 

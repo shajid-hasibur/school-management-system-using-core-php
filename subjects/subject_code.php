@@ -2,6 +2,8 @@
 session_start();
 $basePath = $_SERVER['DOCUMENT_ROOT'];
 include($basePath . '/PHP_SCHOOL/sms/admin/configuration/connection.php');
+
+
 if(isset($_POST['btn-save'])){
     $subject = $_POST['name'];
     $status = $_POST['status'];

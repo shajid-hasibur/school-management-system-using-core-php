@@ -1,9 +1,12 @@
 <?php
 $title = "User Registration";
-include('includes/header.php');
-include('includes/topbar.php');
-include('includes/sidebar.php');
-include('authentication.php');
+$basePath = $_SERVER['DOCUMENT_ROOT'];
+include($basePath . '/PHP_SCHOOL/sms/admin/authorisation.php');
+include($basePath . '/PHP_SCHOOL/sms/admin/includes/header.php');
+include($basePath . '/PHP_SCHOOL/sms/admin/includes/topbar.php');
+include($basePath . '/PHP_SCHOOL/sms/admin/includes/sidebar.php');
+include($basePath . '/PHP_SCHOOL/sms/admin/includes/sessions.php');
+include($basePath . '/PHP_SCHOOL/sms/admin/authentication.php');
 ?>
 
 <div class="content-wrapper">
@@ -28,13 +31,13 @@ include('authentication.php');
 				<div class="card">
 					<div class="card-header bg-dark">
 						<h1 class="card-title">Registration Form</h1>
-						<a href="registration.php" class="btn btn-success btn-sm float-right"><i class="fa fa-arrow-left"></i>&nbsp;Back</a>
+						<a href="users.php" class="btn btn-success btn-sm float-right"><i class="fa fa-arrow-left"></i>&nbsp;Back</a>
 					</div>
 					<div class="card-body">
 						<div class="card col-12">
 							<div class="card-body mt-3 mb-3 d-flex justify-content-center align-items-center">
 								<div class="">
-									<form action="create_user.php" method="POST">
+									<form action="user_code.php" method="POST">
 										<div class="form-row">
 										<div class="form-group col-4">
 											<label>Name</label>
@@ -144,5 +147,5 @@ include('authentication.php');
 </div>
 
 <?php
-include('includes/footer.php');
+include($basePath . '/PHP_SCHOOL/sms/admin/includes/footer.php');
 ?>

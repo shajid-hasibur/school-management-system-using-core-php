@@ -21,15 +21,17 @@ if (isset($_POST['login_btn'])) {
 			$user_name = $user_data['name'];
 			$user_phone = $user_data['phone'];
 			$user_email = $user_data['email'];
+			$user_role = $user_data['usertype'];
 
 			$_SESSION['auth'] = true;
 			$_SESSION['auth_user'] = [
 				'user_id' => $user_id,
 				'user_name' => $user_name,
 				'user_phone' => $user_phone,
-				'user_email' => $user_email
+				'user_email' => $user_email,
+				'user_role' => $user_role
 			];
-			$_SESSION['status'] = "Successfully logged in";
+			$_SESSION['status'] = "Welcome to dashboard";
 			header("location: dashboard.php");
 		} else {
 			$_SESSION['status'] = "Invalid email or password";

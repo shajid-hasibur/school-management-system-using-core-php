@@ -1,10 +1,13 @@
 <?php
 $title = "Edit User Data";
-include('includes/header.php');
-include('includes/topbar.php');
-include('includes/sidebar.php');
-include('authentication.php');
-include('configuration/connection.php');
+$basePath = $_SERVER['DOCUMENT_ROOT'];
+include($basePath . '/PHP_SCHOOL/sms/admin/authorisation.php');
+include($basePath . '/PHP_SCHOOL/sms/admin/includes/header.php');
+include($basePath . '/PHP_SCHOOL/sms/admin/includes/topbar.php');
+include($basePath . '/PHP_SCHOOL/sms/admin/includes/sidebar.php');
+include($basePath . '/PHP_SCHOOL/sms/admin/includes/sessions.php');
+include($basePath . '/PHP_SCHOOL/sms/admin/authentication.php');
+include($basePath . '/PHP_SCHOOL/sms/admin/configuration/connection.php');
 ?>
 
 <div class="content-wrapper">
@@ -13,12 +16,12 @@ include('configuration/connection.php');
 	      <div class="container-fluid">
 	        <div class="row mb-2">
 	          <div class="col-sm-6">
-	            <h1 class="m-0">Update User Data</h1>
+	            <h1 class="m-0">Edit User Data</h1>
 	          </div><!-- /.col -->
 	          <div class="col-sm-6">
 	            <ol class="breadcrumb float-sm-right">
 	              <li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
-	              <li class="breadcrumb-item active">Update User</li>
+	              <li class="breadcrumb-item active">Edit User</li>
 	            </ol>
 	          </div><!-- /.col -->
 	        </div><!-- /.row -->
@@ -30,8 +33,8 @@ include('configuration/connection.php');
 	    		<div class="col-lg-12">
 	    			<div class="card">
 	    				<div class="card-header bg-dark">
-	    					<h3 class="card-title">Update Registered User</h3>
-							<a href="registration.php" class="btn btn-success btn-sm float-right"><i class="fa fa-arrow-left"></i>&nbsp;Back</a>
+	    					<h3 class="card-title">Edit Registered User</h3>
+							<a href="users.php" class="btn btn-success btn-sm float-right"><i class="fa fa-arrow-left"></i>&nbsp;Back</a>
 	    				</div>
 	    				<div class="card-body">
 	    					
@@ -61,7 +64,7 @@ include('configuration/connection.php');
 	    						</div>
 								<div class="card col-12">
 									<div class="card-body mt-3 mb-3 d-flex justify-content-center align-items-center">
-									<form action="user-update-code.php" method="POST">
+									<form action="user_code.php" method="POST">
 	    								<input type="hidden" name="user_id" value="<?php echo $user_id; ?>">
 		    							<div class="form-row">
 											<div class="form-group col-4">
@@ -165,5 +168,5 @@ include('configuration/connection.php');
 </div>	
 
 <?php
-include('includes/footer.php');
+include($basePath . '/PHP_SCHOOL/sms/admin/includes/footer.php');
 ?>

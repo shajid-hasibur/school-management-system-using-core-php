@@ -1,6 +1,7 @@
 <?php
 $title = "Add Fee Category Amount";
 $basePath = $_SERVER['DOCUMENT_ROOT'];
+include($basePath . '/PHP_SCHOOL/sms/admin/authorisation.php');
 include($basePath . '/PHP_SCHOOL/sms/admin/includes/header.php');
 include($basePath . '/PHP_SCHOOL/sms/admin/includes/topbar.php');
 include($basePath . '/PHP_SCHOOL/sms/admin/includes/sidebar.php');

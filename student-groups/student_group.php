@@ -1,6 +1,7 @@
 <?php
 $title = "Student Groups";
 $basePath = $_SERVER['DOCUMENT_ROOT'];
+include($basePath . '/PHP_SCHOOL/sms/admin/authorisation.php');
 include($basePath . '/PHP_SCHOOL/sms/admin/includes/header.php');
 include($basePath . '/PHP_SCHOOL/sms/admin/includes/topbar.php');
 include($basePath . '/PHP_SCHOOL/sms/admin/includes/sidebar.php');
@@ -84,8 +85,8 @@ include($basePath . '/PHP_SCHOOL/sms/admin/configuration/connection.php');
 	    												<td class="text-center"><?php echo $key+1 ?></td>
 	    												<td class="text-center"><?php echo $value['name'] ?></td>
 	    												<td class="text-center">
-	    													<a  href="edit_student_group.php?group_id=<?php echo $value['id']?>" type="button" class="btn btn-sm bg-dark"><i class="fas fa-edit" style="color: red;"></i></a>
-															<button value="<?php echo $value['id']?>" type="button" data-toggle="modal" data-target="#exampleModal" class="btn bg-dark btn-sm delete-btn"><i class="fas fa-trash" style="color: red;"></i></button>
+															<a  href="edit_student_group.php?group_id=<?php echo $value['id']?>" type="button" class="btn btn-sm bg-dark"><i class="fas fa-edit" style="color: red;"></i></a>
+															<button value="<?php echo $value['id']?>" type="button" data-toggle="modal" data-target="#exampleModal" class="btn bg-dark btn-sm delete-btn"><i class="fas fa-trash" style="color: red;"></i></button>		
 	    												</td>
 	    											</tr>
 	    										<?php

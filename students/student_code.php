@@ -148,7 +148,7 @@ if(isset($_POST['btn-save'])){
                 $student_id = mysqli_insert_id($conn);
             }
             //insert into users
-            $sql2 = "INSERT INTO users (usertype,student_id,code,email,password,status) VALUES ('3','$student_id','$code','$email','$encrypted_code','1')";
+            $sql2 = "INSERT INTO users (name,usertype,student_id,code,email,password,status) VALUES ('Student','3','$student_id','$code','$email','$encrypted_code','1')";
             $sql2_run = mysqli_query($conn,$sql2);
 
             //insert into assign_students

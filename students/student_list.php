@@ -1,6 +1,7 @@
 <?php
 $title = "Student List";
 $basePath = $_SERVER['DOCUMENT_ROOT'];
+include($basePath . '/PHP_SCHOOL/sms/admin/authorisation.php');
 include($basePath . '/PHP_SCHOOL/sms/admin/includes/header.php');
 include($basePath . '/PHP_SCHOOL/sms/admin/includes/topbar.php');
 include($basePath . '/PHP_SCHOOL/sms/admin/includes/sidebar.php');
@@ -142,7 +143,7 @@ include($basePath . '/PHP_SCHOOL/sms/admin/configuration/connection.php');
                                     <span class="text-danger" id="section-error"></span>
                                 </div>
                                 <div class="form-group col-3">
-                                    <Button type="submit" class="btn btn-success btn-sm" style="margin-top: 32px;">Search</Button>
+                                    <Button type="submit" class="btn btn-success btn-sm" style="margin-top: 32px;"><i class="fas fa-search"></i>&nbsp;Search</Button>
                                 </div>
                             </div>
                         </form>
