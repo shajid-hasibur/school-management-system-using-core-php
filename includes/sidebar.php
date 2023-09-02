@@ -5,7 +5,7 @@
     <!-- Brand Logo -->
     <a href="/PHP_SCHOOL/sms/admin/dashboard.php" class="brand-link">
       <img src="/PHP_SCHOOL/sms/admin/assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light" style="color:#fa3939;">PHPSMS</span>
+      <span class="brand-text font-weight-light">PHPSMS</span>
     </a>
 
     <!-- Sidebar -->
@@ -117,7 +117,7 @@
               <a href="#" class="nav-link">
               <i class="fas fa-graduation-cap" style="color: #fa3939;"></i>
                 <p style="color:white;">
-                  Students
+                  Students Management
                   <i class="fas fa-angle-left right"></i>
                 </p>
               </a>
@@ -162,7 +162,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="grades.php" class="nav-link">
+                  <a href="/PHP_SCHOOL/sms/admin/grades/grades.php" class="nav-link">
                     <i style="color:#fa3939;" class="fas fa-atom"></i>
                     <p style="color:white;">Grades</p>
                   </a>
