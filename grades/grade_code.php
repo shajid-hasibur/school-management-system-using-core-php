@@ -1,7 +1,7 @@
 <?php
 session_start();
 $basePath = $_SERVER['DOCUMENT_ROOT'];
-include($basePath . '/PHP_SCHOOL/sms/admin/authorisation.php');
+require($basePath . '/PHP_SCHOOL/sms/admin/authorisation.php');
 require($basePath . '/PHP_SCHOOL/sms/admin/configuration/database.php');
 require($basePath . '/PHP_SCHOOL/sms/admin/includes/sessions.php');
 
@@ -41,12 +41,8 @@ if(isset($_POST['btn-save'])){
     if($errors != null){
         header("location: create_grade.php");
     }else{
-        $data = ['grade_name' => $grade_name,'grade_point' => $grade_point,'start_mark' => $start_mark,
-                    'end_mark' => $end_mark,'start_point' => $start_point,'end_point' => $end_point,
-                    'remarks' => $remarks,
-                ];
         $database = new Database();
-        $status = $database->insert('grades',$data);
+        $status = $database->insert('grades',$inputData);
 
         if($status){
             $_SESSION['SuccessMessage'] = "Grade created successfully";
@@ -55,8 +51,23 @@ if(isset($_POST['btn-save'])){
             $_SESSION['notification'] = "Something went wrong. Data not inserted";
             header("location: grades.php");
         }
-
     }
+}
+
+if(isset($_POST['btn-delete'])){
+    $id = $_POST['grade_id'];
+    
+    $db = new Database();
+    $status = $db->delete("grades","$id");
+
+    if($status){
+        $_SESSION['SuccessMessage'] = "Grade deleted successfully";
+        header("location: grades.php");
+    }else{
+        $_SESSION['notification'] = "Something went wrong! Please try again later.";
+        header("location: grades.php");
+    }
+
 }
 
 ?>

@@ -62,28 +62,29 @@ function validation($fieldName) {
     }
 }
 
-
-
 function validateFields($inputData, $validationRules) {
     $errors = [];
 
     foreach ($validationRules as $fieldName => $rules) {
         foreach ($rules as $rule) {
-            // Check the rule and add error messages to the errors array
-            if ($rule === 'required' && empty($inputData[$fieldName])) {
-                // Append the error message to the field's array
-                $errors[$fieldName][] = ucfirst($fieldName) . " is required.";
-            } elseif ($rule === 'numeric' && !empty($inputData[$fieldName]) && !is_numeric($inputData[$fieldName])) {
-                // Append the "numeric" error message only if the field is not empty and is not numeric
-                $errors[$fieldName][] = ucfirst($fieldName) . " must be a valid number.";
+            switch ($rule) {
+                case 'numeric':
+                    if (strlen($inputData[$fieldName]) !== 0 && !is_numeric($inputData[$fieldName])) {
+                        $errors[$fieldName][] = ucfirst($fieldName) . " must be a valid number.";
+                    }
+                    break;
+                case 'required':
+                    if (strlen($inputData[$fieldName]) === 0) {
+                        $errors[$fieldName][] = ucfirst($fieldName) . " is required.";
+                    }
+                    break;
             }
-            // Add more validation rules as needed using additional elseif blocks
         }
     }
 
-    // return the errors
     return $errors;
 }
+
 
 
 

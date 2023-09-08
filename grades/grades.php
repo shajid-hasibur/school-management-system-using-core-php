@@ -7,7 +7,7 @@ include($basePath . '/PHP_SCHOOL/sms/admin/includes/topbar.php');
 include($basePath . '/PHP_SCHOOL/sms/admin/includes/sidebar.php');
 include($basePath . '/PHP_SCHOOL/sms/admin/includes/sessions.php');
 include($basePath . '/PHP_SCHOOL/sms/admin/authentication.php');
-include($basePath . '/PHP_SCHOOL/sms/admin/configuration/connection.php');
+include($basePath . '/PHP_SCHOOL/sms/admin/configuration/database.php');
 ?>
 
 
@@ -15,17 +15,17 @@ include($basePath . '/PHP_SCHOOL/sms/admin/configuration/connection.php');
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form action="#" method="post">
-                    <input type="hidden" name="page_id" value="">
+                <form action="grade_code.php" method="post">
                     <div class="modal-header bg-red">
                         <h5 class="modal-title" id="staticBackdropLabel">Delete Grades</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-
+                    <strong>Are you sure want to delete this grade?</strong>
+                    <input type="hidden" name="grade_id" id="grade-id">
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" name="btn-send" class="btn btn-danger btn-block"><i class="fas fa-trash" aria-hidden="true"></i>&nbsp;Delete</button>
+                        <button type="submit" name="btn-delete" class="btn btn-danger btn-block"><i class="fas fa-trash" aria-hidden="true"></i>&nbsp;Delete</button>
                     </div>
                 </form>
             </div>
@@ -60,8 +60,13 @@ include($basePath . '/PHP_SCHOOL/sms/admin/configuration/connection.php');
                         <a href="create_grade.php" class="btn btn-success btn-sm float-right"><i class="fa fa-plus-circle"></i>&nbsp;Add New Grade</a>
                     </div>
                     <div class="card-body">
+                        <?php
+                            $db = new Database();
+                            $db->select("grades", "*");
+                            $grades = $db->getResult();
+                        ?>
                         <div class="table-responsive">
-                            <table class="table table-bordered">
+                            <table id="example1" class="table table-bordered table-warning">
                                 <thead>
                                     <tr class="text-center">
                                         <th>#</th>
@@ -75,9 +80,25 @@ include($basePath . '/PHP_SCHOOL/sms/admin/configuration/connection.php');
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td></td>
-                                    </tr>
+                                    <?php
+                                    foreach ($grades as $key => $grade) {
+                                        ?>
+                                        <tr class="text-center">
+                                            <td><?php echo $key+1; ?></td>
+                                            <td><?php echo $grade['grade_name']; ?></td>
+                                            <td><?php echo $grade['grade_point']; ?></td>
+                                            <td><?php echo $grade['start_mark']; ?></td>
+                                            <td><?php echo $grade['end_mark']; ?></td>
+                                            <td><?php echo $grade['start_point']; ?> - <?php echo $grade['end_point']; ?></td>
+                                            <td><?php echo $grade['remarks']; ?></td>
+                                            <td>
+                                            <a href="edit_grade.php?grade_id=<?php echo $grade['id'] ?>" class="btn bg-dark btn-sm"><i class="fas fa-edit" style="color: red;"></i></a>
+                                                <button id="delete" type="button" value="<?php echo $grade['id']; ?>" data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="btn bg-dark btn-sm"><i class="fas fa-trash" style="color: red;"></i></button>
+                                            </td>
+                                        </tr>
+                                        <?php
+                                    }
+                                    ?>
                                 </tbody>
                             </table>
                         </div>
@@ -91,3 +112,11 @@ include($basePath . '/PHP_SCHOOL/sms/admin/configuration/connection.php');
 <?php
 include($basePath . '/PHP_SCHOOL/sms/admin/includes/footer.php');
 ?>
+<script>
+    $(document).ready(function(){
+        $(document).on('click','#delete',function(){
+            let id = $(this).val();
+            $('#grade-id').val(id);
+        });
+    });
+</script>
