@@ -54,7 +54,7 @@ class Database
 			}
 			$sql = "UPDATE $table SET " . implode(', ',$args);
 			if ($where != null) {
-				$sql .= " WHERE $where";
+				$sql .= " WHERE id = $where";
 			}
 
 			if ($this->mysqli->query($sql)) {
@@ -97,7 +97,7 @@ class Database
 				$sql .= " JOIN $join";
 			}
 			if($where != null){
-				$sql .= " WHERE $where";
+				$sql .= " WHERE id = $where";
 			}
 			if($order != null){
 				$sql .= " ORDER BY $order";
