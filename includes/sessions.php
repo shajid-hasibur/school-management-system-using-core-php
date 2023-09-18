@@ -34,34 +34,36 @@ function notification(){
     }
 }
 
-// function validation(){
-//     if(isset($_SESSION['validation'])){
-//         $output = "<span style=\"font-size:14px;color:red;\">";
-//         $output .= htmlentities($_SESSION['validation']);
-//         $output .= "</span>";
-//         unset($_SESSION['validation']);
-//         return $output;
-//     }
-// }
+//single input validation error printing method
+function validation(){
+    if(isset($_SESSION['validation'])){
+        $output = "<span style=\"font-size:14px;color:red;\">";
+        $output .= htmlentities($_SESSION['validation']);
+        $output .= "</span>";
+        unset($_SESSION['validation']);
+        return $output;
+    }
+}
 
-
-function validation($fieldName) {
-    if (isset($_SESSION['validation'][$fieldName]) && is_array($_SESSION['validation'][$fieldName])) {
+//multiple input validation error printing method
+function validate($fieldName) {
+    if (isset($_SESSION['validate'][$fieldName]) && is_array($_SESSION['validate'][$fieldName])) {
         $output = "<span style=\"font-size:14px;color:red;\">";
 
-        foreach ($_SESSION['validation'][$fieldName] as $errorText) {
+        foreach ($_SESSION['validate'][$fieldName] as $errorText) {
             $output .= htmlentities($errorText) . "<br>";
         }
 
         $output .= "</span>";
 
         // Remove the displayed errors for this field
-        unset($_SESSION['validation'][$fieldName]);
+        unset($_SESSION['validate'][$fieldName]);
 
         return $output;
     }
 }
 
+//multi type validation for multi inputs
 function validateFields($inputData, $validationRules) {
     $errors = [];
 

@@ -42,49 +42,49 @@ include($basePath . '/PHP_SCHOOL/sms/admin/configuration/database.php');
                                     <label for="letter_grade">Letter Grade</label>
                                     <input type="text" name="grade_name" class="form-control" placeholder="Enter letter grade">
                                     <?php
-                                        echo validation('grade_name');
+                                        echo validate('grade_name');
                                     ?>
                                 </div>
                                 <div class="form-group col-4">
                                     <label for="grade_point">Grade Point</label>
                                     <input type="text" name="grade_point" class="form-control" placeholder="Enter grade point">
                                     <?php
-                                        echo validation('grade_point');
+                                        echo validate('grade_point');
                                     ?>
                                 </div>
                                 <div class="form-group col-4">
                                     <label for="start_mark">Start Marks</label>
                                     <input type="text" name="start_mark" class="form-control" placeholder="Enter start marks">
                                     <?php
-                                        echo validation('start_mark');
+                                        echo validate('start_mark');
                                     ?>
                                 </div>
                                 <div class="form-group col-4">
                                     <label for="end_mark">End Marks</label>
                                     <input type="text" name="end_mark" class="form-control" placeholder="Enter end mark">
                                     <?php
-                                        echo validation('end_mark');
+                                        echo validate('end_mark');
                                     ?>
                                 </div>
                                 <div class="form-group col-4">
                                     <label for="start_point">Start Point</label>
                                     <input type="text" name="start_point" class="form-control" placeholder="Enter start point">
                                     <?php
-                                        echo validation('start_point');
+                                        echo validate('start_point');
                                     ?>
                                 </div>
                                 <div class="form-group col-4">
                                     <label for="end_point">End Point</label>
                                     <input type="text" name="end_point" class="form-control" placeholder="Enter letter grade">
                                     <?php
-                                        echo validation('end_point');
+                                        echo validate('end_point');
                                     ?>
                                 </div>
                                 <div class="form-group col-4">
                                     <label for="remarks">Remarks</label>
                                     <input type="text" name="remarks" class="form-control" placeholder="Enter remarks">
                                     <?php
-                                        echo validation('remarks');
+                                        echo validate('remarks');
                                     ?>
                                 </div>
                                 <div class="form-group col-12">

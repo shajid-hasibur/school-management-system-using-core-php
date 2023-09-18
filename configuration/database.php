@@ -54,7 +54,7 @@ class Database
 			}
 			$sql = "UPDATE $table SET " . implode(', ',$args);
 			if ($where != null) {
-				$sql .= " WHERE id = $where";
+				$sql .= " WHERE $where";
 			}
 
 			if ($this->mysqli->query($sql)) {
@@ -74,7 +74,7 @@ class Database
 		if ($this->tableExists($table)) {
 			$sql = "DELETE FROM $table";
 			if ($where != null) {
-				$sql .= " WHERE id = $where";
+				$sql .= " WHERE $where";
 			}
 			if ($this->mysqli->query($sql)) {
 				array_push($this->result, $this->mysqli->affected_rows);
@@ -97,7 +97,7 @@ class Database
 				$sql .= " JOIN $join";
 			}
 			if($where != null){
-				$sql .= " WHERE id = $where";
+				$sql .= " WHERE $where";
 			}
 			if($order != null){
 				$sql .= " ORDER BY $order";

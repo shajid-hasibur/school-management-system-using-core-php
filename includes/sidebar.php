@@ -112,6 +112,14 @@
                   </a>
                 </li>
               </ul>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="/PHP_SCHOOL/sms/admin/additional-subjects/assign_additional_subject.php" class="nav-link">
+                    <i style="color:#fa3939;" class="fas fa-arrow-right"></i>
+                    <p style="color:white;">Additional Subjects</p>
+                  </a>
+                </li>
+              </ul>
           </li>
           <li class="nav-item">
               <a href="#" class="nav-link">

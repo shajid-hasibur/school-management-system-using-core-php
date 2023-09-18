@@ -37,7 +37,7 @@ if(isset($_POST['btn-save'])){
     ];
 
     $errors = validateFields($inputData, $validationRules);
-    $_SESSION['validation'] = $errors;
+    $_SESSION['validate'] = $errors;
     if($errors != null){
         header("location: create_grade.php");
     }else{
@@ -88,14 +88,14 @@ if(isset($_POST['btn-update'])){
     ];
 
     $errors = validateFields($inputData, $validationRules);
-    $_SESSION['validation'] = $errors;
+    $_SESSION['validate'] = $errors;
 
     if($errors != null){
         header("location: $url");
     }else{
         try{
             $db = new Database();
-            $status = $db->update("grades",$inputData,$id);
+            $status = $db->update("grades",$inputData,"id=$id");
             if($status){
                 $_SESSION['SuccessMessage'] = "Grade updated successfully";
                 header("location: grades.php");
@@ -112,7 +112,7 @@ if(isset($_POST['btn-delete'])){
     $id = $_POST['grade_id'];
     
     $db = new Database();
-    $status = $db->delete("grades","$id");
+    $status = $db->delete("grades","id=$id");
 
     if($status){
         $_SESSION['SuccessMessage'] = "Grade deleted successfully";
